@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta name="google-signin-client_id" content="902871525839-p05ss41m2r4pmi7i9u7iq64cbsc3j3co.apps.googleusercontent.com">
+		<title> Digital Palengke</title>
+		<link rel="shortcut icon" href="public/images/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="materialize-css/css/materialize.min.css">
+		<link rel="stylesheet" href="public/stylesheets/admin.css">
+		<link rel="type/javascipt" href="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	</head>
+
+	<body>
+		<!-- <div id="sidenav" class="side-nav fixed" style="text-align: center; padding-top: 2%;">
+			<img id="logo" src="public/images/logo.png" alt="logo" style="width: 150px; height: 150px;"/>
+			<br><br>
+			<div class="navdiv">
+				<a class="waves-effect waves-light btn-flat modal-trigger" onclick="uploadForm()">Add Product</a>
+			</div>	
+			<div class="navdiv">
+				<a class="waves-effect waves-light btn-flat modal-trigger" onclick="uploadForm()">Sign Out</a>
+			</div>	
+		</div> -->
+
+		<div class="side-nav fixed">
+			<div class="container">
+				<div class="row" style="margin-top: 7%;">
+					<img id="logo" src="public/images/logo.png" alt="logo" style="width: 150px; height: 150px;"/>
+				</div>
+			</div>
+			<div class="row" style="margin-left: 2%;">
+				<div class="col s12"> <h4> Hi, Admin! </h4> </div>
+				<div class="col s12"> <h6> Total Number of Products</h6><b>0</b> </div>
+			</div>	
+				<div class="navdiv">
+					<a class="waves-effect waves-light btn-flat modal-trigger" onclick="uploadForm()">Add Product</a>
+				</div>	
+				<div class="navdiv">
+					<a class="waves-effect waves-light btn-flat modal-trigger" onclick="uploadForm()">Sign Out</a>
+				</div>	
+			
+		</div>
+
+		<div class="container">
+			<div class="row col s12 center"> <h2> Product Catalogue </h2> </div>
+			<div id="product_holder" class="row">
+				<div id="holder" class="center">
+				</div>
+			</div>
+		</div>
+
+		<div id="form_modal" class="modal">
+			<div class="modal-header">
+				Add a Product 
+			</div>
+			<div class="modal-content">
+		      <form>
+		      	<div class="row">
+		      		<div class="input-field col s4">
+		      			<i class="medium material-icons prefix">group</i>
+		      			<input id="grp_number" type="number" min="1" max="27" class="validate">
+		      			<label for="grp_number"> Group #</label>
+		      		</div>	
+				    <div class="input-field col s8">
+				    	<i class="medium material-icons prefix">web</i>
+				    	<input id="prod_name" type="text" class="validate">
+				    	<label for="prod_name">Product Name</label>
+				    </div>
+				</div>
+				<div class="row">
+					<div class="input-field col s12">
+			        	<i class="medium material-icons prefix">mode_edit</i>
+			        	<textarea id="prod_description" class="materialize-textarea"></textarea>
+			        	<label for="icon_prefix2">Product Description</label>
+			        </div>
+				</div>
+				 <div class="file-field input-field">
+			      <div class="btn" style="background-color: darkgrey;">
+			        <span> FILE </span>
+			        <input type="file">
+			      </div>
+			      <div class="file-path-wrapper col s10">
+			        <input class="file-path validate" type="text" placeholder="Add file">
+
+			      </div>
+			    </div>
+			     <div class="row" style="text-align: right;">
+			     	<div class="input-field col s12">
+			     		 <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" style="color: black;">Cancel</a>
+			     		<input id="submit_btn" class="btn waves-effect waves-light validate yellow lighten-1" type="submit" value="Submit"/>
+			     	</div>
+			     </div>
+		      </form>
+		    </div>
+		</div>    
+
+		<!-- Javascripts -->
+		<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+		<script src="materialize-css/js/materialize.min.js"></script>
+		<script src="public/javascripts/admin.js"></script>
+	</body>
+</html>	
