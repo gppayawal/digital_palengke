@@ -5,7 +5,6 @@ $(document).ready(function(){
 function uploadForm(){
 	resetForm();
 	$('#form_modal').modal('open');
-
 	$('#submitProductForm').on('submit', function(e){
 		e.preventDefault();
 		var groupNum = $('#groupNum').val();
@@ -29,6 +28,7 @@ function uploadForm(){
 		        if (res.status === 200){
 		        	$('#form_modal').modal('close');
 		            Materialize.toast('Product added!', 4000, 'yellow lighten-1');
+		            $('#count').html(res.size);
 		        }
 			});
 		} else {
@@ -44,32 +44,19 @@ function resetForm(){
 	$('#imageFile').val('');
 }
 
-function addToProducts(){
-	/*var i = 0;
-	i++;
-	alert("yo");
-	var grp = document.getElementById('groupNum');
-
-	$('#holder').append(
-		$('<div>')
-			.attr('class', 'card-panel prods')
-			.append(
-				$('<h6>')
-					.text('GROUP N0: ' + grp)
-				,
-				$('<br>')
-				,
-				$('<p>')
-					.text('PRODUCT NAME:')
-				,
-				$('<span>')
-					.text('DESCRIPTION')		
-			)
-	)
-
-	var data = 'id='+(this.id)-1;
-
-	$.post('/products', data, function(res){
-
-	});*/
-}	
+function save(){
+	fetch('/api/admin/save', {
+		method: 'POST',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Accept':'application/json'
+        }
+	})
+	.then((res) => {
+        if (res.status === 200){
+        	$('#form_modal').modal('close');
+            Materialize.toast('Products saved', 4000, 'yellow lighten-1');
+        }
+	});
+}

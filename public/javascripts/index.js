@@ -14,7 +14,7 @@ function HandleGoogleApiLibrary() {
             // Initialize client & auth libraries
             gapi.client.init({
                 apiKey: 'AIzaSyBmsD0b9zx_uairclEHUTlXOWCgx_9QJsY',
-                clientId: '902871525839-ouvcfp2v9qls8qte2dqd85mocuna3gif.apps.googleusercontent.com',
+                clientId: '228751032281-thug6ceidd8hkigu8le4a30dof32ulp6.apps.googleusercontent.com',
                 scope: 'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/plus.me'
             }).then(
                 function(success) {
@@ -38,6 +38,7 @@ function HandleGoogleApiLibrary() {
 
 function admin(){
 	$('#modal1').modal('open');
+
 };
 
 function student(){

@@ -1,6 +1,5 @@
 var fs = require('fs');
-
-var jsonData = {};
+var products = require('../products.json');
 
 module.exports = {
 	addproduct: function(req, res){
@@ -13,14 +12,17 @@ module.exports = {
 
 		console.log(data);
 
-		fs.appendFile('./products.txt', JSON.stringify(data), (err) => {
-			if(err){
-				console.log(err);
-				throw err;
-			}
-			console.log("file has been created");
-		});
+		products.push(data);
+		res.json({status: 200, size:products.length});
+	},
 
-		res.json({status: 200});
+	save: function(req, res){
+		fs.writeFile('./products.json', JSON.stringify(products), (err) => {
+      if(err){
+        console.log(err);
+        throw err;
+      }
+    });
+    res.json({status: 200});
 	}
 }
