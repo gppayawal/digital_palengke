@@ -2,8 +2,14 @@
 
 <html lang="en">
 	<head>
+<<<<<<< HEAD
 		<meta name="google-signin-client_id" content="228751032281-gn7bbkvo2kn22j7ac0okpekm19aoo1sa.apps.googleusercontent.com"/> 
+=======
+		<meta name="google-signin-client_id" content="902871525839-ouvcfp2v9qls8qte2dqd85mocuna3gif.apps.googleusercontent.com">
+>>>>>>> b7d1d48c4d1848658206289ef4d400893d9f78e1
 		<title> Digital Palengke</title>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+		<script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};HandleGoogleApiLibrary();" onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
 		<link rel="shortcut icon" href="public/images/favicon.ico" type="image/x-icon">
 		<link rel="stylesheet" href="materialize-css/css/materialize.min.css">
 		<link rel="stylesheet" href="public/stylesheets/index.css">
@@ -33,10 +39,10 @@
 				</div>
 				<div class="divider"></div>
 				<div class="col s6" style="padding-left: 15%;">				
-					<a class="waves-effect waves-light btn modal-trigger" onclick="admin()">Admin</a>
+					<a class="waves-effect waves-light btn modal-trigger" id="login_admin" onclick="admin()">Admin</a>
 				</div>
 				<div class="col s6" style="padding-right: 15%;">			
-					<a class="waves-effect waves-light btn modal-trigger" onclick="student()">Student</a>
+					<a class="waves-effect waves-light btn modal-trigger" id="login_student" onclick="student()">Student</a>
 				</div>	
 			</div>
 		</div>
@@ -52,8 +58,9 @@
 		    </div>
 		 </div>	
 
-		<!-- LOGIN STUDENT Modal-->
-		<!-- <div id="modal2" class="modal">
+
+		 <!-- LOGIN STUDENT Modal -->
+		<div id="modal2" class="modal">
 		    <div class="modal-content">
 		      <h4>Login as Student</h4>
 		      <div class="g-signin2" data-onsuccess="onSignIn" style="width: 150px; height: 50px;"></div>
@@ -61,16 +68,12 @@
 		    <div class="modal-footer">
 		      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>
 		    </div>
-		 </div> -->
-		<script type="text/javascript">
-			function onSignIn() {
-				var googleUser = gapi.auth2.getAuthInstance().currentUser.get();
-			  var profile = googleUser.getBasicProfile();
-			  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-			  console.log('Name: ' + profile.getName());
-			  console.log('Image URL: ' + profile.getImageUrl());
-			  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-			}
-		</script>
+		 </div>
+	 
+		<!-- Javascripts -->
+		<script src="public/javascripts/index.js"></script>
+		<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+		<script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
+  	<script src="materialize-css/js/materialize.min.js"></script>		
 	</body>
 </html>
