@@ -2,12 +2,19 @@
 
 <html lang="en">
 	<head>
-		<meta name="google-signin-client_id" content="902871525839-p05ss41m2r4pmi7i9u7iq64cbsc3j3co.apps.googleusercontent.com">
+		<meta name="google-signin-client_id" content="228751032281-gn7bbkvo2kn22j7ac0okpekm19aoo1sa.apps.googleusercontent.com"/> 
 		<title> Digital Palengke</title>
 		<link rel="shortcut icon" href="public/images/favicon.ico" type="image/x-icon">
 		<link rel="stylesheet" href="materialize-css/css/materialize.min.css">
 		<link rel="stylesheet" href="public/stylesheets/index.css">
 		<link rel="type/javascipt" href="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js">
+
+		<!-- Javascripts -->
+		<script src="jquery/jquery.min.js"></script>
+		<script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
+		<script src="https://apis.google.com/js/platform.js" async defer></script>
+  		<script src="materialize-css/js/materialize.min.js"></script>
+		<script src="public/javascripts/index.js"></script>
 	</head>
 
 	<body>
@@ -21,6 +28,7 @@
 					    <div class="back">
 					        <img id="logo" src="public/images/logo.png" alt="logo" />
 					    </div> 
+					    <script type="text/javascript"> $('.back').hide(); </script>
 					</div>
 				</div>
 				<div class="divider"></div>
@@ -34,7 +42,7 @@
 		</div>
 
 		<!-- LOGIN ADMIN Modal-->
-		<!-- <div id="modal1" class="modal">
+		<div id="modal1" class="modal">
 		    <div class="modal-content">
 		      <h4>Login as Administrator</h4>
 		      <div class="g-signin2" data-onsuccess="onSignIn" style="width: 150px; height: 50px;"></div>
@@ -42,7 +50,7 @@
 		    <div class="modal-footer">
 		      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>
 		    </div>
-		 </div> -->
+		 </div>	
 
 		<!-- LOGIN STUDENT Modal-->
 		<!-- <div id="modal2" class="modal">
@@ -54,13 +62,15 @@
 		      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>
 		    </div>
 		 </div> -->
-
-		
-		<!-- Javascripts -->
-		<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-		<script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
-		<script src="https://apis.google.com/js/platform.js" async defer></script>
-  		<script src="materialize-css/js/materialize.min.js"></script>
-		<script src="public/javascripts/index.js"></script>
+		<script type="text/javascript">
+			function onSignIn() {
+				var googleUser = gapi.auth2.getAuthInstance().currentUser.get();
+			  var profile = googleUser.getBasicProfile();
+			  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+			  console.log('Name: ' + profile.getName());
+			  console.log('Image URL: ' + profile.getImageUrl());
+			  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+			}
+		</script>
 	</body>
 </html>

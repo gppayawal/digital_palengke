@@ -3,12 +3,11 @@ $(document).ready(function(){
         trigger: 'hover'
     });
     $('.modal').modal();
+    $('.back').show();
 });
 
 function admin(){
-	//$('#modal1').modal('open');
-	alert('yo');
-	window.location.href="/admin";
+	$('#modal1').modal('open');
 };
 
 function student(){
