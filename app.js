@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
+var admin = require('./routes/admin');
 var users = require('./routes/users');
 
 var app = express();
@@ -26,6 +27,7 @@ app.use('/materialize', express.static(path.join(__dirname, 'node_modules/materi
 app.use('/jquery', express.static(path.join(__dirname, 'node_modules/jquery/dist')));
 app.use('/icons', express.static(path.join(__dirname, 'public/icons/iconfont')));
 app.use('/', index);
+app.use('/api/admin', admin);
 app.use('/users', users);
 
 // catch 404 and forward to error handler
