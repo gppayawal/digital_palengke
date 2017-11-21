@@ -1,10 +1,5 @@
 $(document).ready(function(){
 	$('.modal').modal();
-});
-
-function uploadForm(){
-	resetForm();
-	$('#form_modal').modal('open');
 	$('#submitProductForm').on('submit', function(e){
 		e.preventDefault();
 		var groupNum = $('#groupNum').val();
@@ -35,6 +30,11 @@ function uploadForm(){
 			Materialize.toast("Fill out all fields", 4000, 'yellow lighten-1');
 		}
 	});
+});
+
+function uploadForm(){
+	resetForm();
+	$('#form_modal').modal('open');
 }
 
 function resetForm(){
@@ -42,21 +42,4 @@ function resetForm(){
 	$('#productName').val('');
 	$('#productDesc').val('');
 	$('#imageFile').val('');
-}
-
-function save(){
-	fetch('/api/admin/save', {
-		method: 'POST',
-        credentials: 'include',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-            'Accept':'application/json'
-        }
-	})
-	.then((res) => {
-        if (res.status === 200){
-        	$('#form_modal').modal('close');
-            Materialize.toast('Products saved', 4000, 'yellow lighten-1');
-        }
-	});
 }

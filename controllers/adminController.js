@@ -13,16 +13,12 @@ module.exports = {
 		console.log(data);
 
 		products.push(data);
-		res.json({status: 200, size:products.length});
-	},
-
-	save: function(req, res){
-		fs.writeFile('./products.json', JSON.stringify(products), (err) => {
+    fs.writeFile('./products.json', JSON.stringify(products), (err) => {
       if(err){
         console.log(err);
         throw err;
       }
     });
-    res.json({status: 200});
+    res.json({status: 200, size:products.length});
 	}
 }

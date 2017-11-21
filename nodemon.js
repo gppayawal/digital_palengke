@@ -1,10 +1,10 @@
 {
-    "ignore": ["product.json"],
+    "ignore": ["products.json"],
     "watch": [
         "app.js",
         "bin/www",
         "controllers",
         "routes",
-        "models"
+        "src"
     ]
 }
