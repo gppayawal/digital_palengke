@@ -1,33 +1,26 @@
 $(document).ready(function(){
 	$('.modal').modal();
-	$('#submitProductForm').on('submit', function(e){
+	$('#submitProductForm').submit(function(e){
 		e.preventDefault();
-		var groupNum = $('#groupNum').val();
-		var productName = $('#productName').val();
-		var productDesc = $('#productDesc').val();
-		var imageFile = $('#imageFile').val();
-		var formData = 'groupNumber=' + groupNum + '&productName=' + productName + '&productDesc=' + productDesc + '&imageFile=' + imageFile; 
-
-		if(groupNum != '' && productName != '' && productDesc != '' && imageFile != ''){
-			fetch('/api/admin/addproduct', {
-				method: 'POST',
-		        credentials: 'include',
-		        headers: {
-		            'Content-Type': 'application/x-www-form-urlencoded',
-		            'Accept':'application/json'
-		        },
-		        body: formData
-			})
-			.then((res) => {
-		        if (res.status === 200){
-		        	$('#form_modal').modal('close');
-		            Materialize.toast('Product added!', 4000, 'yellow lighten-1');
-		            viewProducts();
-		        }
-			});
-		} else {
-			Materialize.toast("Fill out all fields", 4000, 'red lighten-1');
-		}
+		var formData = new FormData(this);
+    $.ajax({
+      url : '/api/admin/addproduct',
+      type: 'POST',
+      data: formData,
+      async: false,
+      cache: false,
+      contentType: false,
+      processData: false,
+      success:function(data, textStatus, jqXHR){
+          $('#form_modal').modal('close');
+          Materialize.toast('Product added!', 4000, 'yellow lighten-1');
+          viewProducts();
+      },
+      error: function(jqXHR, textStatus, errorThrown){
+          Materialize.toast('Error!', 4000, 'red lighten-1');
+    }
+});
+    return false;
 	});
 
 	viewProducts();
@@ -42,7 +35,7 @@ function resetForm(){
  	$('#groupNum').val('');
 	$('#productName').val('');
 	$('#productDesc').val('');
-	$('#imageFile').val('');
+	$('#imageFilename').val('');
 }
 
 function viewProducts(){
@@ -51,7 +44,6 @@ function viewProducts(){
 	$.getJSON( "public/products.json", function(result){
 	$('#count').text(result.length);
 	 	for(i = 0; i < result.length; i++){
-	 		console.log(result[i]);
 	 		$('#holder').append(
 				$('<div>')
 					.attr('class', 'card-panel prods')

@@ -2,7 +2,7 @@ var groupNumber;
 var day1 = ['1','2','3','7','10','12','14','17','18'];
 var day2 = ['4','5','6','8','11','12','15','16'];
 var otherGroup;
-var balance = 100000;
+var balance = 1000000;
 
 var investments = {};
 
@@ -60,7 +60,7 @@ function viewProducts(){
                   .attr('type', 'number')
                   .attr('id', 'value'+i)
                   .attr('min', 0)
-                  .attr('max', 100000)
+                  .attr('max', 1000000)
                   .attr('step', 100)
                   .attr('value', 0)
                 ,
