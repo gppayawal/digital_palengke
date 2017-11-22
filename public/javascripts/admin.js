@@ -56,17 +56,6 @@ function viewProducts(){
 				$('<div>')
 					.attr('class', 'card-panel prods')
 					.append(
-						$('<h6>')
-							.text('GROUP #: ' + result[i].groupNumber)
-						,
-						$('<p>')
-							.text('Product Name: ' + result[i].productName)
-						,
-						$('<span>')
-							.text(result[i].productDesc)
-						,
-						$('<br>')
-						,
 						$('<div>')	
 							.attr('class', 'center')
 							.append(
@@ -74,7 +63,18 @@ function viewProducts(){
 									.attr('class', 'logos')
 									.attr('src', 'public/uploads/'+result[i].imageFile)
 
-							)		
+						)
+						,
+						$('<br>')
+						,
+						$('<h6>')
+							.text('Group ' + result[i].groupNumber)
+						,
+						$('<p>')
+							.text('Product Name: ' + result[i].productName)
+						,
+						$('<span>')
+							.text(result[i].productDesc)
 					)	
 			)
 	 	}
