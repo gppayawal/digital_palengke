@@ -4,6 +4,8 @@ var day2 = ['4','5','6','8','11','12','15','16'];
 var otherGroup;
 var balance = 100000;
 
+var investments = {};
+
 $(document).ready(function(){
 	$('.carousel').carousel();
 	$('.carousel.carousel-slider').carousel({
@@ -51,7 +53,7 @@ function viewProducts(){
             ,
             $('<form>')
               .attr('id', i)
-              .attr('class', 'investForm')
+              .attr('class', 'investForm'+i)
               .attr('name', result[i].productName)
               .append(
                 $('<input>')
@@ -67,39 +69,51 @@ function viewProducts(){
                   .attr('id', 'invest'+i)
                   .attr('class', 'btn waves-effect waves-light validate yellow lighten-1')
                   .attr('value', 'INVEST')
-                ,
-                $('input')
-                  .attr('id', 'hidden'+i)
-                  .attr('type', 'hidden')
-                  .attr('value', result[i].productName)
               )
 					)	
 			)
-      $('.investForm').on('submit', function(e){
+      $('.investForm'+i).on('submit', function(e){
         e.preventDefault();
         var i = this.id;
         var val = parseInt($('#value'+i).val());
-        if(val == 0)
+        if(Object.keys(investments).length >= 5 && !investments[this.name])
+          Materialize.toast("Maximum of 5 products", 4000, 'red lighten-1');
+        else if(val == 0)
           Materialize.toast("Cannot invest $0", 4000, 'red lighten-1');
         else if(val > balance)
-          Materialize.toast("Investment is greater than remaining balance", 4000, 'red lighten-1');
+          Materialize.toast("Amount is greater than remaining balance", 4000, 'red lighten-1');
         else{
-          var formData = 'index='+i+'&value='+val;
-          fetch('/api/student/invest', {
-            method: 'POST',
-            credentials: 'include',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-                'Accept':'application/json'
-            },
-            body: formData
-          })
-          .then((res) => {
-            balance -= val;
-            $('#balance').text('$ ' + balance.formatMoney(0));
-            Materialize.toast("Successfully invested $" + val.formatMoney(0) + " in " + this.name, 4000, 'green lighten-1');
-          });
-         
+          if(confirm('Are you sure you want to invest $' + val + ' in ' + this.name)){
+            var formData = 'index='+i+'&value='+val;
+            fetch('/api/student/invest', {
+              method: 'POST',
+              credentials: 'include',
+              headers: {
+                  'Content-Type': 'application/x-www-form-urlencoded',
+                  'Accept':'application/json'
+              },
+              body: formData
+            })
+            .then((res) => {
+              balance -= val;
+              $('#balance').text('$ ' + balance.formatMoney(0));
+              Materialize.toast("Successfully invested $" + val.formatMoney(0) + " in " + this.name, 4000, 'green lighten-1');
+              var temp = {
+                name: this.name,
+                value: val
+              }
+              if(investments[this.name])
+                investments[this.name] += val;
+              else
+                investments[this.name] = val;
+              console.log(investments);
+              $('#value'+i).val(0)
+              $('#products').empty();
+              Object.keys(investments).forEach(function(key){
+                $('#products').append($('<h6>').text(key + ' - $ ' + investments[key]));
+              });
+            });
+          }
         }
       });
 	 	}

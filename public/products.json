@@ -4,6 +4,48 @@
         "productName": "Facebook",
         "productDesc": "for booking of the face",
         "imageFile": "undefined",
-        "investments": 600
+        "investments": 109900
+    },
+    {
+        "groupNumber": "4",
+        "productName": "Scott",
+        "productDesc": "Good tiger",
+        "imageFile": "undefined",
+        "investments": 1200
+    },
+    {
+        "groupNumber": "2",
+        "productName": "Twitter",
+        "productDesc": "tweet tweet tweet",
+        "imageFile": "undefined",
+        "investments": 2700
+    },
+    {
+        "groupNumber": "3",
+        "productName": "Wikipedia",
+        "productDesc": "Fake encyclopedia",
+        "imageFile": "undefined",
+        "investments": 100
+    },
+    {
+        "groupNumber": "7",
+        "productName": "Youtube",
+        "productDesc": "Video player tube",
+        "imageFile": "undefined",
+        "investments": 1300
+    },
+    {
+        "groupNumber": "10",
+        "productName": "Evernote",
+        "productDesc": "your forevernotes",
+        "imageFile": "undefined",
+        "investments": 1000
+    },
+    {
+        "groupNumber": "18",
+        "productName": "Microsoft Word",
+        "productDesc": "Wooord",
+        "imageFile": "undefined",
+        "investments": 2700
     }
 ]

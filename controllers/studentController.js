@@ -2,9 +2,7 @@ var fs = require('fs');
 
 module.exports = {
 	invest: function(req, res){
-		console.log('investing....');
 		var products = require('../public/products.json');
-		console.log(products);
 		var i = req.body.index;
 
 		products[i].investments = parseInt(products[i].investments) + parseInt(req.body.value);
