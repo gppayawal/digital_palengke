@@ -52,5 +52,11 @@
         "productName": "asd",
         "productDesc": "ascaaq",
         "imageFile": "shit"
+    },
+    {
+        "groupNumber": "1",
+        "productName": "Facebook",
+        "productDesc": "Waddup fb",
+        "imageFile": "undefined"
     }
 ]
