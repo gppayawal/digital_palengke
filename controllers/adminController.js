@@ -1,5 +1,5 @@
 var fs = require('fs');
-var products = require('../products.json');
+var products = require('../public/products.json');
 
 module.exports = {
 	addproduct: function(req, res){
@@ -13,12 +13,16 @@ module.exports = {
 		console.log(data);
 
 		products.push(data);
-    fs.writeFile('./products.json', JSON.stringify(products), (err) => {
+    fs.writeFile('public/products.json', JSON.stringify(products, null, 4), (err) => {
       if(err){
         console.log(err);
         throw err;
       }
     });
     res.json({status: 200, size:products.length});
+	},
+
+	logout: function(req, res){
+		res.redirect('/');
 	}
 }

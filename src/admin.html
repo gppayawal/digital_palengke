@@ -23,10 +23,13 @@
 				<div class="col s12"> <h6> Total Number of Products</h6><b id='count'>0</b> </div>
 			</div>	
 				<div class="navdiv">
+					<a class="waves-effect waves-light btn-flat modal-trigger" onclick="viewProducts()">View Products</a>
+				</div>	
+				<div class="navdiv">
 					<a class="waves-effect waves-light btn-flat modal-trigger" onclick="uploadForm()">Add Product</a>
 				</div>	
 				<div class="navdiv">
-					<a class="waves-effect waves-light btn-flat modal-trigger" onclick="save()">Save</a>
+					<a class="waves-effect waves-light btn-flat modal-trigger" href="/api/admin/logout">Sign Out</a>
 				</div>	
 			
 		</div>
@@ -85,6 +88,7 @@
 		</div>    
 
 		<!-- Javascripts -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 		<script src="materialize-css/js/materialize.min.js"></script>
 		<script src="public/javascripts/admin.js"></script>
