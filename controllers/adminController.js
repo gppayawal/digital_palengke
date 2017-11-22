@@ -21,7 +21,7 @@ module.exports = {
     console.log(data);
 
     products.push(data);
-    fs.writeFile('./public/products.json', JSON.stringify(products), (err) => {
+    fs.writeFile('public/products.json', JSON.stringify(products, null, 4), (err) => {
       if(err){
         console.log(err);
         throw err;
@@ -29,5 +29,9 @@ module.exports = {
     });
 
     res.json({status: 200, size:products.length});
+	},
+
+	logout: function(req, res){
+		res.redirect('/');
 	}
 }

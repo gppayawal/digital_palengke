@@ -6,8 +6,7 @@ $(document).ready(function(){
 		var productName = $('#productName').val();
 		var productDesc = $('#productDesc').val();
 		var imageFile = $('#imageFile').val();
-		var formData = 'groupNumber=' + groupNum + '&productName=' + productName + '&productDesc=' + productDesc + '&imageFile=' + imageFile + '\n'; 
-		console.log(formData);
+		var formData = 'groupNumber=' + groupNum + '&productName=' + productName + '&productDesc=' + productDesc + '&imageFile=' + imageFile; 
 
 		if(groupNum != '' && productName != '' && productDesc != '' && imageFile != ''){
 			fetch('/api/admin/addproduct', {
@@ -42,4 +41,40 @@ function resetForm(){
 	$('#productName').val('');
 	$('#productDesc').val('');
 	$('#imageFile').val('');
+}
+
+function viewProducts(){
+	alert("hello");
+	var i = 0;
+
+	$.getJSON( "public/products.json", function(result){
+	 	for(i = 0; i < result.length; i++){
+	 		console.log(result[i]);
+	 		$('#holder').append(
+				$('<div>')
+					.attr('class', 'card-panel prods')
+					.append(
+						$('<h6>')
+							.text('GROUP #: ' + result[i].groupNumber)
+						,
+						$('<p>')
+							.text('Product Name: ' + result[i].productName)
+						,
+						$('<span>')
+							.text(result[i].productDesc)
+						,
+						$('<br>')
+						,
+						$('<div>')	
+							.attr('class', 'center')
+							.append(
+								$('<img>')
+									.attr('class', 'logos')
+									.attr('src', 'public/images/'+result[i].imageFile)
+
+							)		
+					)	
+			)
+	 	}
+	});
 }
