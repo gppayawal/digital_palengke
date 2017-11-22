@@ -24,14 +24,19 @@ textarea {
 }
 
 .card-panel{
-	width: 250px;
-	height: 300px;
+	width: 380px;
+	height: 450px;
 	background-color: #FFFFA5;
 }
 
 .container{
 	margin: 0 auto; 
 	margin-left: 25%;
+}
+
+.logos{
+	width: 150px;
+	height: 150px;
 }
 
 .modal{

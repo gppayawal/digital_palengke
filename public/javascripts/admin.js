@@ -26,7 +26,7 @@ $(document).ready(function(){
 		        }
 			});
 		} else {
-			Materialize.toast("Fill out all fields", 4000, 'yellow lighten-1');
+			Materialize.toast("Fill out all fields", 4000, 'red lighten-1');
 		}
 	});
 
@@ -56,7 +56,7 @@ function viewProducts(){
 				$('<div>')
 					.attr('class', 'card-panel prods')
 					.append(
-					    $('<div>')	
+						$('<div>')	
 							.attr('class', 'center')
 							.append(
 								$('<img>')
@@ -65,10 +65,10 @@ function viewProducts(){
 
 							)
 						,
-						$('<br/>')
+						$('<br>')
 						,
 						$('<h6>')
-							.text('GROUP #: ' + result[i].groupNumber)
+							.text('Group ' + result[i].groupNumber)
 						,
 						$('<p>')
 							.text('Product Name: ' + result[i].productName)

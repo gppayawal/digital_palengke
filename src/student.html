@@ -21,88 +21,21 @@
 			<div class="row" style="margin-left: 2%;">
 				<div class="col s12"> <h4> Hi, Student! </h4> </div>
 				<div class="col s12"> <h6> Alloted Money for Investments</h6><b>$100,000</b>  </div>
-				<div class="col s12"> <h6> Your current balance </h6><b>$100,000</b> </div>
+				<div class="col s12"> <h6> Your current balance </h6><b id='balance'></b> </div>
 			</div>
 		</div>
 
 		<div class="container">
 			<div class="row col s12 center"> <h2> Product Catalogue </h2> </div>
-			<div id="product_holder" class="row">
+			<div id="product_holder" class="row"">
 				<div id="holder" class="center">
-					<!--  <div class="carousel" style="height: 550px; background-color: pink;">
-					    <a class="carousel-item card-panel dark-grey lighten-1" href="#one!" style="width: 400px; height: 
-					    550px; padding-top: 4%;">
-					    	<div>
-					    		<img src="https://lorempixel.com/250/250/nature/1">
-					    		<br>
-					    		<h6> Product Name </h6>
-					    		<textarea id="prod_description">
-					    			GABRIELLE PAULINE E PAYAWALGABRIELLE PAULINE E PAYAWALGABRIELLE PAULINE E PAYAWALGABRIELLE PAULINE E PAYAWALGABRIELLE PAULINE E PAYAWALGABRIELLE PAULINE E PAYAWALGABRIELLE PAULINE E PAYAWALGABRIELLE PAULINE E PAYAWALGABRIELLE PAULINE E PAYAWALGABRIELLE PAULINE E PAYAWALGABRIELLE PAULINE E PAYAWALGABRIELLE PAULINE E PAYAWALGABRIELLE PAULINE E PAYAWALGABRIELLE PAULINE E PAYAWALGABRIELLE PAULINE E PAYAWALGABRIELLE PAULINE E PAYAWALGABRIELLE PAULINE E PAYAWALGABRIELLE PAULINE E PAYAWALGABRIELLE PAULINE E PAYAWAL
-					    		</textarea>
-					    	</div>	
-					    	<div class="col s6">
-					    		<h6> Enter amount: </h6>
-					    		<textarea id="amount" class="materialize-textarea" maxlength="7" style="float: left;"></textarea>
-					    	</div>
-					    </a>
-					    <a class="carousel-item" href="#two!"><img src="https://lorempixel.com/250/250/nature/2"></a>
-					    <a class="carousel-item" href="#three!"><img src="https://lorempixel.com/250/250/nature/3"></a>
-					    <a class="carousel-item" href="#four!"><img src="https://lorempixel.com/250/250/nature/4"></a>
-					    <a class="carousel-item" href="#five!"><img src="https://lorempixel.com/250/250/nature/5"></a>
-					  </div> -->
-
+				</div>
 			</div>
 		</div>
-
-		<div id="form_modal" class="modal">
-			<div class="modal-header">
-				Add a Product 
-			</div>
-			<div class="modal-content">
-		      <form>
-		      	<div class="row">
-		      		<div class="input-field col s4">
-		      			<i class="medium material-icons prefix">group</i>
-		      			<input id="grp_number" type="number" min="1" max="27" class="validate">
-		      			<label for="grp_number"> Group #</label>
-		      		</div>	
-				    <div class="input-field col s8">
-				    	<i class="medium material-icons prefix">web</i>
-				    	<input id="prod_name" type="text" class="validate">
-				    	<label for="prod_name">Product Name</label>
-				    </div>
-				</div>
-				<div class="row">
-					<div class="input-field col s12">
-			        	<i class="medium material-icons prefix">mode_edit</i>
-			        	<textarea id="prod_description" class="materialize-textarea"></textarea>
-			        	<label for="icon_prefix2">Product Description</label>
-			        </div>
-				</div>
-				 <div class="file-field input-field">
-			      <div class="btn" style="background-color: darkgrey;">
-			        <span> FILE </span>
-			        <input type="file">
-			      </div>
-			      <div class="file-path-wrapper col s10">
-			        <input class="file-path validate" type="text" placeholder="Add file">
-
-			      </div>
-			    </div>
-			     <div class="row" style="text-align: right;">
-			     	<div class="input-field col s12">
-			     		 <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" style="color: black;">Cancel</a>
-			     		<input id="submit_btn" class="btn waves-effect waves-light validate yellow lighten-1" type="submit" value="Submit"/>
-			     	</div>
-			     </div>
-		      </form>
-		    </div>
-		</div>    
-
+			
 		<!-- Javascripts -->
-		<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+		<script src="jquery/jquery.min.js"></script>
 		<script src="materialize-css/js/materialize.min.js"></script>
-		<!-- <script src="public/javascripts/admin.js"></script> -->
 		<script src="public/javascripts/student.js"></script>
 	</body>
 </html>	
