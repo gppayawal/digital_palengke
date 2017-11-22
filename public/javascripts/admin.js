@@ -22,13 +22,15 @@ $(document).ready(function(){
 		        if (res.status === 200){
 		        	$('#form_modal').modal('close');
 		            Materialize.toast('Product added!', 4000, 'yellow lighten-1');
-		            $('#count').html(res.size);
+		            viewProducts();
 		        }
 			});
 		} else {
 			Materialize.toast("Fill out all fields", 4000, 'yellow lighten-1');
 		}
 	});
+
+	viewProducts();
 });
 
 function uploadForm(){
@@ -44,10 +46,10 @@ function resetForm(){
 }
 
 function viewProducts(){
-	alert("hello");
 	var i = 0;
-
+	$('#holder').empty();
 	$.getJSON( "public/products.json", function(result){
+	$('#count').text(result.length);
 	 	for(i = 0; i < result.length; i++){
 	 		console.log(result[i]);
 	 		$('#holder').append(
@@ -70,7 +72,7 @@ function viewProducts(){
 							.append(
 								$('<img>')
 									.attr('class', 'logos')
-									.attr('src', 'public/images/'+result[i].imageFile)
+									.attr('src', 'public/uploads/'+result[i].imageFile)
 
 							)		
 					)	
