@@ -2,7 +2,8 @@
     {
         "groupNumber": "1",
         "productName": "Facebook",
-        "productDesc": "booking of the face",
-        "imageFile": "undefined"
+        "productDesc": "for booking of the face",
+        "imageFile": "undefined",
+        "investments": 600
     }
 ]

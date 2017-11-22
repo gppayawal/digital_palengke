@@ -1,15 +1,16 @@
 var fs = require('fs');
-var products = require('../public/products.json');
 
 module.exports = {
 	addproduct: function(req, res){
     var data = {};
     
+    var products = require('../public/products.json');
 
     data.groupNumber = req.body.groupNumber;
     data.productName = req.body.productName;
     data.productDesc = req.body.productDesc;
     data.imageFile = req.body.imageFile;
+    data.investments = 0;
     console.log(data);
 
     products.push(data);
@@ -20,7 +21,7 @@ module.exports = {
       }
     });
 
-    res.json({status: 200, size:products.length});
+    res.json({status: 200});
 	},
 
 	logout: function(req, res){

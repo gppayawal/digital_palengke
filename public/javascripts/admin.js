@@ -75,6 +75,9 @@ function viewProducts(){
 						,
 						$('<span>')
 							.text(result[i].productDesc)
+						,
+						$('<p>')
+							.text('Total Investment: $ ' + result[i].investments)
 					)	
 			)
 	 	}

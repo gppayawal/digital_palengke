@@ -84,9 +84,22 @@ function viewProducts(){
         else if(val > balance)
           Materialize.toast("Investment is greater than remaining balance", 4000, 'red lighten-1');
         else{
-          balance -= val;
-          $('#balance').text('$ ' + balance.formatMoney(0));
-          Materialize.toast("Successfully invested $" + val.formatMoney(0) + " in " + this.name, 4000, 'green lighten-1');
+          var formData = 'index='+i+'&value='+val;
+          fetch('/api/student/invest', {
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Accept':'application/json'
+            },
+            body: formData
+          })
+          .then((res) => {
+            balance -= val;
+            $('#balance').text('$ ' + balance.formatMoney(0));
+            Materialize.toast("Successfully invested $" + val.formatMoney(0) + " in " + this.name, 4000, 'green lighten-1');
+          });
+         
         }
       });
 	 	}
