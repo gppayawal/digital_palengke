@@ -8,6 +8,17 @@ h2{
 	font-family: "Lucida Console", "Courier New", monospace;
 }
 
+h6, p{
+	font-weight: bold;
+}
+
+header{
+	text-align: right;
+}
+
+textarea{
+	height: 170px;
+}
 
 .btn{
 	color: black;
@@ -19,13 +30,19 @@ h2{
 
 .card-panel{
 	width: 380px;
-	height: 450px;
+	height: 500px;
 	background-color: #FFFFA5;
+	border-radius: 20px;
+	font-size: 14px;
 }
 
 .container{
 	margin: 0 auto; 
 	margin-left: 25%;
+}
+
+.grpnum{
+	float: left;
 }
 
 .logos{
