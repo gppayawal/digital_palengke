@@ -3,10 +3,10 @@ var fs = require('fs');
 module.exports = {
 	invest: function(req, res){
 		var products = require('../public/products.json');
+		console.log(req.body);
 		var i = req.body.index;
 
 		products[i].investments = parseInt(products[i].investments) + parseInt(req.body.value);
-
 
 	    fs.writeFile('public/products.json', JSON.stringify(products, null, 4), (err) => {
 	      if(err){

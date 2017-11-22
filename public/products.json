@@ -4,13 +4,20 @@
         "productName": "Wooo",
         "productDesc": "Yey",
         "imageFile": "mbuntu-1.jpg",
-        "investments": 0
+        "investments": 2300
     },
     {
         "groupNumber": "1",
         "productName": "chever",
         "productDesc": "chuchu",
         "imageFile": "mbuntu-10.jpg",
-        "investments": 0
+        "investments": 1200
+    },
+    {
+        "groupNumber": "1",
+        "productName": "sadsa",
+        "productDesc": "chuewra",
+        "imageFile": "mbuntu-13.jpg",
+        "investments": 1300
     }
 ]

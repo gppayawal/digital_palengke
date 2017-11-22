@@ -2,8 +2,8 @@ var groupNumber;
 var day1 = ['1','2','3','7','10','12','14','17','18'];
 var day2 = ['4','5','6','8','11','12','15','16'];
 var otherGroup;
-var balance = 1000000;
-
+var max = 1000000
+var total = 0;
 var investments = {};
 
 $(document).ready(function(){
@@ -17,9 +17,39 @@ $(document).ready(function(){
     });
   groupNumber = prompt("Please enter your group number");
   otherGroup = day1.indexOf(groupNumber) != -1? day2 : day1;
-  $('#balance').text('$ ' + balance.formatMoney(0));
+  $('#balance').text('$ ' + max.formatMoney(0));
+  $('#checkout').on('click', checkout);
   viewProducts();
 });
+
+function checkout(e){
+  e.preventDefault();
+  if(Object.keys(investments).length < 3)
+    Materialize.toast("Minimum of 3 products", 4000, 'red lighten-1');
+  else if(confirm('Are you sure you want to check out?')){
+    Object.keys(investments).forEach(function(key){
+      var product = investments[key];
+      var formData = 'index='+product.index+'&value='+product.value;
+      fetch('/api/student/invest', {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Accept':'application/json'
+        },
+        body: formData
+      })
+      .then((res) => {
+        Materialize.toast("Successfully invested $" + product.value.formatMoney(0) + " in " + key, 4000, 'green lighten-1');
+      });
+    });
+    $('#checkout').unbind('click');
+    $('#checkout').on('click', function(){
+      Materialize.toast('You have already checked out', 4000, 'red lighten-1');
+    });
+  }
+  
+}
 
 function viewProducts(){
 	var i = 0;
@@ -60,7 +90,7 @@ function viewProducts(){
                   .attr('type', 'number')
                   .attr('id', 'value'+i)
                   .attr('min', 0)
-                  .attr('max', 1000000)
+                  .attr('max', max)
                   .attr('step', 100)
                   .attr('value', 0)
                 ,
@@ -79,55 +109,42 @@ function viewProducts(){
         if(Object.keys(investments).length >= 5 && !investments[this.name])
           Materialize.toast("Maximum of 5 products", 4000, 'red lighten-1');
         else if(val == 0)
-          Materialize.toast("Cannot invest $0", 4000, 'red lighten-1');
-        else if(val > balance)
+          if(!investments[this.name])
+            Materialize.toast("Cannot invest $0", 4000, 'red lighten-1');
+          else{
+            delete investments[this.name];
+            updateSummary();
+            Materialize.toast("Removed investment in " + this.name, 4000, 'green lighten-1');
+          }
+        else if(val > max-total)
           Materialize.toast("Amount is greater than remaining balance", 4000, 'red lighten-1');
         else{
-          if(confirm('Are you sure you want to invest $' + val + ' in ' + this.name)){
-            var formData = 'index='+i+'&value='+val;
-            fetch('/api/student/invest', {
-              method: 'POST',
-              credentials: 'include',
-              headers: {
-                  'Content-Type': 'application/x-www-form-urlencoded',
-                  'Accept':'application/json'
-              },
-              body: formData
-            })
-            .then((res) => {
-              balance -= val;
-              $('#balance').text('$ ' + balance.formatMoney(0));
-              Materialize.toast("Successfully invested $" + val.formatMoney(0) + " in " + this.name, 4000, 'green lighten-1');
-              var temp = {
-                name: this.name,
-                value: val
-              }
-              if(investments[this.name])
-                investments[this.name] += val;
-              else
-                investments[this.name] = val;
-              console.log(investments);
-              $('#value'+i).val(0)
-              $('#products').empty();
-              Object.keys(investments).forEach(function(key){
-                $('#products').append($('<h6>').text(key + ' - $ ' + investments[key]));
-              });
-            });
-          }
+          Materialize.toast("Successfully placed $" + val.formatMoney(0) + " in " + this.name, 4000, 'green lighten-1');
+          investments[this.name] = {value:val, index:i};
+          updateSummary();
         }
       });
 	 	}
 	});
 }
 
+function updateSummary(){
+  $('#products').empty();
+  total = 0;
+  Object.keys(investments).forEach(function(key){
+    $('#products').append($('<h6>').text(key + ' - $ ' + investments[key].value));
+    total += investments[key].value;
+  });
+  var balance = max - total;
+  $('#balance').text('$ ' + balance.formatMoney(0));
+}
+
 
 Number.prototype.formatMoney = function(c, d, t){
-var n = this, 
-    c = isNaN(c = Math.abs(c)) ? 2 : c, 
-    d = d == undefined ? "." : d, 
-    t = t == undefined ? "," : t, 
-    s = n < 0 ? "-" : "", 
-    i = String(parseInt(n = Math.abs(Number(n) || 0).toFixed(c))), 
-    j = (j = i.length) > 3 ? j % 3 : 0;
-   return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
- };
+  var n = this, c = isNaN(c = Math.abs(c)) ? 2 : c, d = d == undefined ? "." : d, t = t == undefined ? "," : t, s = n < 0 ? "-" : "", i = String(parseInt(n = Math.abs(Number(n) || 0).toFixed(c))), j = (j = i.length) > 3 ? j % 3 : 0;
+  return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
+};
+
+/*
+
+*/

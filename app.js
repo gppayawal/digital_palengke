@@ -27,6 +27,7 @@ app.use('/public', express.static(path.join(__dirname, 'public')));
 app.use('/materialize-css', express.static(path.join(__dirname, 'node_modules/materialize-css/dist')));
 app.use('/materialize', express.static(path.join(__dirname, 'node_modules/materialize/dist')));
 app.use('/jquery', express.static(path.join(__dirname, 'node_modules/jquery/dist')));
+app.use('/file-saver', express.static(path.join(__dirname, 'node_modules/file-saver/')));
 app.use('/icons', express.static(path.join(__dirname, 'public/icons/iconfont')));
 app.use('/', index);
 app.use('/api/admin', admin);
