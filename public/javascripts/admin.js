@@ -48,6 +48,21 @@ function viewProducts(){
 				$('<div>')
 					.attr('class', 'card-panel prods')
 					.append(
+						$('<header>')
+							.append(
+								$('<h6>')
+									.attr('class', 'grpnum')
+									.text('Group ' + result[i].groupNumber)
+								,
+								$('<a>')
+									.attr('class', 'btn-floating btn-small waves-effect waves-light red')
+									.append(
+										$('<i>')
+											.attr('class', 'material-icons')
+											.text('delete')
+									)	
+							)
+						,
 						$('<div>')	
 							.attr('class', 'center')
 							.append(
@@ -57,15 +72,12 @@ function viewProducts(){
 
 							)
 						,
-						$('<br>')
-						,
-						$('<h6>')
-							.text('Group ' + result[i].groupNumber)
-						,
 						$('<p>')
-							.text('Product Name: ' + result[i].productName)
+							.attr('class', 'center')
+							.text(result[i].productName)
 						,
-						$('<span>')
+						$('<textarea>')
+							.attr('readonly', 'true')
 							.text(result[i].productDesc)
 						,
 						$('<p>')

@@ -1,20 +1,12 @@
 var groupNumber;
 var day1 = ['1','2','3','7','10','12','14','17','18'];
-var day2 = ['4','5','6','8','11','12','15','16'];
+var day2 = ['4','5','6','8','11','13','15','16'];
 var otherGroup;
 var max = 1000000
 var total = 0;
 var investments = {};
 
 $(document).ready(function(){
-	$('.carousel').carousel();
-	$('.carousel.carousel-slider').carousel({
-			fullWidth: true,
-            dist:0,
-            shift:0,
-            padding:20,
-
-    });
   groupNumber = prompt("Please enter your group number");
   otherGroup = day1.indexOf(groupNumber) != -1? day2 : day1;
   $('#balance').text('$ ' + max.formatMoney(0));
@@ -62,6 +54,17 @@ function viewProducts(){
 				$('<div>')
 					.attr('class', 'card-panel prods')
 					.append(
+            $('<header>')
+              .append(
+                $('<h6>')
+                  .attr('class', 'grpnum')
+                  .text('Group ' + result[i].groupNumber)
+              )
+            ,
+            $('<br>')
+            ,
+            $('<br>')
+            ,
 						$('<div>')	
 							.attr('class', 'center')
 							.append(
@@ -70,16 +73,13 @@ function viewProducts(){
 									.attr('src', 'public/uploads/'+result[i].imageFile)
 						  )
 						,
-						$('<br>')
-						,
-						$('<h6>')
-							.text('Group ' + result[i].groupNumber)
-						,
 						$('<p>')
-							.text('Product Name: ' + result[i].productName)
+              .attr('class', 'center')
+							.text(result[i].productName)
 						,
-						$('<span>')
-							.text(result[i].productDesc)
+						$('<textarea>')
+              .attr('readonly', 'true')
+              .text(result[i].productDesc)
             ,
             $('<form>')
               .attr('id', i)
