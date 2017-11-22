@@ -1,5 +1,5 @@
 {
-    "ignore": ["products.json"],
+    "ignore": ["public/products.json"],
     "watch": [
         "app.js",
         "bin/www",

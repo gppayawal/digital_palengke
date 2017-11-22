@@ -1,24 +1,33 @@
 var fs = require('fs');
-var products = require('../products.json');
+var multer  = require('multer')
+var upload = multer({ dest: 'public/uploads/' });
+var products = require('../public/products.json');
 
 module.exports = {
 	addproduct: function(req, res){
-		var data = {};
-		
-		data.groupNumber = req.body.groupNumber;
-		data.productName = req.body.productName;
-		data.productDesc = req.body.productDesc;
-		data.imageFile = req.body.imageFile;
+    var data = {};
+    
+    try{
+      upload.any();
+    }catch(err){
+      console.log(err);
+    }
+    var image = 'shit';
 
-		console.log(data);
+    data.groupNumber = req.body.groupNumber;
+    data.productName = req.body.productName;
+    data.productDesc = req.body.productDesc;
+    data.imageFile = image;
+    console.log(data);
 
-		products.push(data);
-    fs.writeFile('./products.json', JSON.stringify(products), (err) => {
+    products.push(data);
+    fs.writeFile('./public/products.json', JSON.stringify(products), (err) => {
       if(err){
         console.log(err);
         throw err;
       }
     });
+
     res.json({status: 200, size:products.length});
 	}
 }
