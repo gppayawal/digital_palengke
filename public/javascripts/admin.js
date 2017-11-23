@@ -46,6 +46,7 @@ function viewProducts(){
 	 	for(i = 0; i < result.length; i++){
 	 		$('#holder').append(
 				$('<div>')
+					.attr('id', 'cardId'+i)
 					.attr('class', 'card-panel prods')
 					.append(
 						$('<header>')
@@ -55,6 +56,8 @@ function viewProducts(){
 									.text('Group ' + result[i].groupNumber)
 								,
 								$('<a>')
+									.attr('id', i)
+									.attr('onclick', 'removecard()')
 									.attr('class', 'btn-floating btn-small waves-effect waves-light red')
 									.append(
 										$('<i>')
@@ -86,4 +89,9 @@ function viewProducts(){
 			)
 	 	}
 	});
+}
+
+function removecard(){
+	alert('deleting ' + this.id);
+	$('#cardId'+this.id).remove();
 }
