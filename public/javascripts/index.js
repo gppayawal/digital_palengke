@@ -4,42 +4,35 @@ $(document).ready(function(){
     });
     $('.modal').modal();
     $('.back').show();
+
+    var i = 0;
+    $('#formPIN').submit(function(e){
+       e.preventDefault();
+       var enteredStudentNumber = $('#studentNumber').val();
+       var enteredPIN = $('#studentPIN').val();
+       $.getJSON('public/pins.json', function(result){
+            for(i = 0; i < result.length; i++){
+                if(enteredPIN == result[i].pin && enteredStudentNumber == result[i].studentNumber){
+                    window.location.href="/student";
+                    break;
+                }   
+                else{
+                    console.log('no match');
+                    Materialize.toast('Invalid PIN', 3000, 'yellow darken-1');
+                }    
+            }
+       });
+
+    });
 });
 
-// Called when Google Javascript API Javascript is loaded
-function HandleGoogleApiLibrary() {
-    // Load "client" & "auth2" libraries
-    gapi.load('client:auth2',  {
-        callback: function() {
-            // Initialize client & auth libraries
-            gapi.client.init({
-                apiKey: 'AIzaSyBmsD0b9zx_uairclEHUTlXOWCgx_9QJsY',
-                clientId: '228751032281-thug6ceidd8hkigu8le4a30dof32ulp6.apps.googleusercontent.com',
-                scope: 'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/plus.me'
-            }).then(
-                function(success) {
-                    // Libraries are initialized successfully
-                    // You can now make API calls
-                    console.log('success');
-                }, 
-                function(error) {
-                    // Error occurred
-                    // console.log(error) to find the reason
-                    console.log(error);
-                }
-            );
-        },
-        onerror: function() {
-            // Failed to load libraries
-            console.log('failed to load libraries');
-        }
-    });
+/*function admin(){
+	//$('#modal1').modal('open');
 }
 
-function admin(){
-	//$('#modal1').modal('open');
-};
-
 function student(){
-	//$('#modal2').modal('open');
-};
+    e.preventDefault();
+    $('#formPIN').submit(function(e){
+        window.href.location='student.html';
+    });
+}*/
