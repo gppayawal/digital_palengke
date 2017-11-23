@@ -1,55 +1,23 @@
 [
     {
         "groupNumber": "1",
-        "productName": "Wooo",
-        "productDesc": "Yey",
+        "productName": "Product1",
+        "productDesc": "Prodcut Description 1",
         "imageFile": "mbuntu-1.jpg",
-        "investments": 2300
-    },
-    {
-        "groupNumber": "1",
-        "productName": "chever",
-        "productDesc": "chuchu",
-        "imageFile": "mbuntu-10.jpg",
-<<<<<<< HEAD
-        "investments": 1200
-    },
-    {
-        "groupNumber": "1",
-        "productName": "sadsa",
-        "productDesc": "chuewra",
-        "imageFile": "mbuntu-13.jpg",
-        "investments": 1300
-=======
-        "investments": 0
+        "investments": 8814
     },
     {
         "groupNumber": "2",
-        "productName": "Yey",
-        "productDesc": "woot wooot woot",
-        "imageFile": "1.png",
-        "investments": 0
+        "productName": "Product2",
+        "productDesc": "Product Description 2",
+        "imageFile": "mbuntu-2.jpg",
+        "investments": 8545
     },
     {
         "groupNumber": "3",
-        "productName": "BUSakay",
-        "productDesc": "BUSakay is your real time travel companion specially created for UPLB students. Save time by knowing the route, estimated time of arrival and departure in each bus stop, number of people waiting in each stop, and number of available seats on the bus.",
-        "imageFile": "23619024_1997042430322335_1832235088_n.png",
-        "investments": 0
-    },
-    {
-        "groupNumber": "11",
-        "productName": "ELBI Study Buddy",
-        "productDesc": "An app for students and tutors for group studies/remedial groups, that helps UPLB students to share, save, and have access to lecture slides, notes, reviewers, handouts, etc. uploaded by the users. Users include students, professors, and even alumni that provide tutoring services for students in UPLB. It is named Elbi Study Buddy because the app can be your study buddy and/or it can find a study buddy for you.",
-        "imageFile": "group11elbistudybuddy_logo.png",
-        "investments": 200
-    },
-    {
-        "groupNumber": "13",
-        "productName": "BING",
-        "productDesc": "\"Mid week and got no money? No need to worry! You're just a BING away!! \r\n\r\nFrom now on, you never have to worry if your short in budget. With just one BING you can pay for your food, handouts, jeepney rides, etc. The BING application allows you to preload your purse so that you can use your e-money to pay for your expenses within the campus. And that's not all!! BING also allows you to keep track of your expenses monthly, weekly, daily.\r\n\r\nFor special treats, whenever you get your grades, you'll get special rewards based on your grades of the subjects you have enrolled! 50 pesos for 1.0, 40 pesos for 1.5, 30 pesos for 2.0 and so on! Hurry up and join us!\"",
-        "imageFile": "ITproject logo.png",
-        "investments": 0
->>>>>>> 6e4602df1d13a9a1ac93f80f688a145c6b2a0631
+        "productName": "Product 3",
+        "productDesc": "Product Description 3",
+        "imageFile": "mbuntu-3.jpg",
+        "investments": 8994
     }
 ]
