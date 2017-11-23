@@ -2,10 +2,8 @@
 
 <html lang="en">
 	<head>
-		<meta name="google-signin-client_id" content="228751032281-thug6ceidd8hkigu8le4a30dof32ulp6.apps.googleusercontent.com"/> 
+		<meta name="viewport" content="width=device-width, intial-scale=1" charset="utf-8">
 		<title> Digital Palengke</title>
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-		<script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};HandleGoogleApiLibrary();" onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
 		<link rel="shortcut icon" href="public/images/favicon.ico" type="image/x-icon">
 		<link rel="stylesheet" href="materialize-css/css/materialize.min.css">
 		<link rel="stylesheet" href="public/stylesheets/index.css">
@@ -14,7 +12,6 @@
 		<!-- Javascripts -->
 		<script src="jquery/jquery.min.js"></script>
 		<script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
-		<script src="https://apis.google.com/js/platform.js" async defer></script>
   		<script src="materialize-css/js/materialize.min.js"></script>
 		<script src="public/javascripts/index.js"></script>
 	</head>
@@ -38,7 +35,7 @@
 					<a href= '/admin' class="waves-effect waves-light btn modal-trigger" id="login_admin" onclick="admin()">Admin</a>
 				</div>
 				<div class="col s6" style="padding-right: 15%;">			
-					<a class="waves-effect waves-light btn modal-trigger" id="login_student" onclick="student()">Student</a>
+					<a class="waves-effect waves-light btn modal-trigger" id="login_student" onclick="$('#modal2').modal('open');">Student</a>
 				</div>	
 			</div>
 		</div>
@@ -58,11 +55,19 @@
 		 <!-- LOGIN STUDENT Modal -->
 		<div id="modal2" class="modal">
 		    <div class="modal-content">
-		      <h4>Login as Student</h4>
-		      <div class="g-signin2" data-onsuccess="onSignIn" style="width: 150px; height: 50px;"></div>
-		    </div>
-		    <div class="modal-footer">
-		      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>
+		      <h4>Enter the following</h4>
+		      <div> 
+		      	<form id="formPIN">
+		      		<div class="row col s4">
+			      		<input type="text" name="studentnum" placeholder="Student Number" id="studentNumber">
+			    	</div>
+		      		<div class="row col s4">
+			      		<input type="text" name="studentpin" placeholder="PIN" id="studentPIN">
+			    	</div>
+			    	<div class="row" style="text-align: right;">
+			    		<input value="LOGIN" type="submit" id="submitPIN">
+			    	</div>  
+			    </form>
 		    </div>
 		 </div>
 	 

@@ -18,7 +18,7 @@ function checkout(e){
   e.preventDefault();
   if(Object.keys(investments).length < 3)
     Materialize.toast("Minimum of 3 products", 4000, 'red lighten-1');
-  else if(confirm('Are you sure you want to check out?'+product.name)){
+  else if(confirm('Are you sure you want to check out?')){
     Object.keys(investments).forEach(function(key){
       var product = investments[key];
       var formData = 'index='+product.index+'&value='+product.value;
