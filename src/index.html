@@ -32,10 +32,9 @@
 				</div>
 				<div class="divider"></div>
 				<div class="col s6" style="padding-left: 15%;">				
-					<a href= '/admin' class="waves-effect waves-light btn modal-trigger" id="login_admin">Admin</a>
+					<a class="waves-effect waves-light btn modal-trigger" id="login_admin" onclick="admin()">Admin</a>
 				</div>
-				<div class="col s6" style="padding-right: 15%;">			
-<					<a class="waves-effect waves-light btn modal-trigger" id="login_student" onclick="$('#modal2').modal('open');">Student</a>
+				<div class="col s6" style="padding-right: 15%;">																<a class="waves-effect waves-light btn modal-trigger" id="login_student" onclick="student()">Student</a>
 				</div>	
 			</div>
 		</div>
@@ -44,18 +43,21 @@
 		<div id="modal1" class="modal">
 		    <div class="modal-content">
 		      <h4>Login as Administrator</h4>
-		      <div class="g-signin2" data-onsuccess="onSignIn" style="width: 150px; height: 50px;"></div>
-		    </div>
-		    <div class="modal-footer">
-		      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">CANCEL</a>
+		      <form id="formAdmin">
+		      		<div class="row col s4">
+			      		<input required type="password" name="adminpass" placeholder="Password" id="adminPassword">
+			    	</div>
+			    	<div class="row" style="text-align: right;">
+			    		<input value="LOGIN" type="submit" id="submitPIN">
+			    	</div>  
+			    </form>
 		    </div>
 		 </div>	
-
 
 		 <!-- LOGIN STUDENT Modal -->
 		<div id="modal2" class="modal">
 		    <div class="modal-content">
-		      <h4>Enter the following</h4>
+		      <h4>Login as Student</h4>
 		      <div> 
 		      	<form id="formPIN">
 		      		<div class="row col s4">

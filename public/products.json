@@ -1,4 +1,4 @@
-[[
+[
     {
         "groupNumber": "1",
         "productName": "Product1",
@@ -61,5 +61,12 @@
         "productDesc": "\"Mid week and got no money? No need to worry! You're just a BING away!! \r\n\r\nFrom now on, you never have to worry if your short in budget. With just one BING you can pay for your food, handouts, jeepney rides, etc. The BING application allows you to preload your purse so that you can use your e-money to pay for your expenses within the campus. And that's not all!! BING also allows you to keep track of your expenses monthly, weekly, daily.\r\n\r\nFor special treats, whenever you get your grades, you'll get special rewards based on your grades of the subjects you have enrolled! 50 pesos for 1.0, 40 pesos for 1.5, 30 pesos for 2.0 and so on! Hurry up and join us!\"",
         "imageFile": "ITproject logo.png",
         "investments": 0
+    },
+    {
+        "groupNumber": "3",
+        "productName": "BuzzFood",
+        "productDesc": "A cutting edge, state of the art mobile application that lets you search, discover and randomize restaurants, pubs and cafes within the vicinity of Los Banos, Laguna. This application will filter the restaurant menus based on the price range, specialty, user reviews and ratings , food type, and meal type categories plus a real-time update on which restaurants don't have a wait and can seat the user right away! Features also include, maps that will guide the users and memory suggestions on the user's previous orders.  This mobile app is perfect for UPLB students, faculties and anyone in Los Banos who can't think of a good place to eat.",
+        "imageFile": "3.jpg",
+        "investments": 0
     }
-]]
+]

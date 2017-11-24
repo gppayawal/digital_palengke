@@ -4,9 +4,30 @@ $(document).ready(function(){
     });
     $('.modal').modal();
     $('.back').show();
+});
 
-    var i = 0;
-    var flag = 0;
+function admin(){
+	$('#modal1').modal('open');
+    var password = "star";
+    $('#formAdmin').on('submit', function(e){
+        e.preventDefault();
+        var enteredPassword = $('#adminPassword').val();
+        console.log(enteredPassword + "   " + password);
+
+        if(enteredPassword != password){
+            Materialize.toast('You shall not pass!', 3000, 'red lighten-1');
+            $('#adminPassword').trigger('reset');
+        }
+        else{
+            window.location.href="/admin";
+        }
+    });
+   
+}
+
+function student(){
+    $('#modal2').modal('open');
+    var i = 0, flag = 0;
     $('#formPIN').submit(function(e){
        e.preventDefault();
        var enteredStudentNumber = $('#studentNumber').val();
@@ -15,26 +36,15 @@ $(document).ready(function(){
             for(i = 0; i < result.length; i++){
                 if(enteredPIN == result[i].pin && enteredStudentNumber == result[i].studentNumber){
                     flag = 1;
-                    Materialize.toast('Success!', 3000, 'yellow darken-1');
                     window.location.href="/student";
+                    break;
                 }    
             }
        });
        if(flag == 0){
-                Materialize.toast('Invalid combination', 3000, 'yellow darken-1');
+                Materialize.toast('Invalid combination', 3000, 'red lighten-1');
                 $('#formPIN').trigger('reset');
         }
 
     });
-});
-
-/*function admin(){
-	//$('#modal1').modal('open');
 }
-
-function student(){
-    e.preventDefault();
-    $('#formPIN').submit(function(e){
-        window.href.location='student.html';
-    });
-}*/

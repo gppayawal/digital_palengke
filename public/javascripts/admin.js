@@ -32,10 +32,7 @@ function uploadForm(){
 }
 
 function resetForm(){
- 	$('#groupNum').val('');
-	$('#productName').val('');
-	$('#productDesc').val('');
-	$('#imageFilename').val('');
+	$('#submitProductForm').trigger('reset');
 }
 
 function viewProducts(){
