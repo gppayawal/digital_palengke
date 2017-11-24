@@ -4,5 +4,6 @@ var studentController = require('../controllers/studentController');
 
 router.get('/logout', studentController.logout);
 router.post('/invest', studentController.invest)
-router.get('/loginstudent', studentController.loginstudent);
+router.post('/login', studentController.loginstudent);
+router.get('/products', studentController.getProducts);
 module.exports = router;

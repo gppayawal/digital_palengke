@@ -3,8 +3,13 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	//res.render('index', { title: 'Express' });
-	res.sendFile('index.html', { root: __dirname + '/../src/'});
+	console.log(req.session);
+	if(req.session.student)
+		res.redirect('/student');
+	else if(req.session.admin)
+		res.redirect('/admin');
+	else
+		res.sendFile('index.html', { root: __dirname + '/../src/'});
 });
 
 router.get('/admin', function(req, res, next){
@@ -12,7 +17,12 @@ router.get('/admin', function(req, res, next){
 });
 
 router.get('/student', function(req, res, next){
-	res.sendFile('student.html', { root: __dirname + '/../src/'});
+	console.log(req.session)
+	if(req.session.student)
+		res.sendFile('student.html', { root: __dirname + '/../src/'});
+	else
+    res.redirect('/');
+
 });
 
 module.exports = router;

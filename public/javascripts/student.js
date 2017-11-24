@@ -1,14 +1,8 @@
-var groupNumber;
-var day1 = ['1','2','3','7','10','12','14','17','18'];
-var day2 = ['4','5','6','8','11','13','15','16'];
-var otherGroup;
 var max = 1000000
 var total = 0;
 var investments = {};
 
 $(document).ready(function(){
-  groupNumber = prompt("Please enter your group number");
-  otherGroup = day1.indexOf(groupNumber) != -1? day2 : day1;
   $('#balance').text('$ ' + max.formatMoney(0));
   $('#checkout').on('click', checkout);
   viewProducts();
@@ -40,10 +34,8 @@ function checkout(e){
 function viewProducts(){
 	var i = 0;
 	$('#holder').empty();
-	$.getJSON( "public/products.json", function(result){
+	$.get('/api/student/products', function(result){
 	 	for(i = 0; i < result.length; i++){
-	 		if(otherGroup.indexOf(result[i].groupNumber) == -1)
-	 			continue;
 	 		$('#holder').append(
 				$('<div>')
 					.attr('class', 'card-panel prods')
