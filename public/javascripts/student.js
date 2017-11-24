@@ -19,28 +19,22 @@ function checkout(e){
   if(Object.keys(investments).length < 3)
     Materialize.toast("Minimum of 3 products", 4000, 'red lighten-1');
   else if(confirm('Are you sure you want to check out?')){
-    Object.keys(investments).forEach(function(key){
+    var doc = new jsPDF();
+
+    for(key in investments){
       var product = investments[key];
-      var formData = 'index='+product.index+'&value='+product.value;
-      fetch('/api/student/invest', {
-        method: 'POST',
-        credentials: 'include',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-            'Accept':'application/json'
-        },
-        body: formData
-      })
-      .then((res) => {
-        Materialize.toast("Successfully invested $" + product.value.formatMoney(0) + " in " + key, 4000, 'green lighten-1');
+      
+      var formData = 'index='+product.index+'&value='+product.value.formatMoney(0)+'&name='+key;
+      $.post('/api/student/invest', formData, function(res){
+        alert(JSON.stringify(res));
+        Materialize.toast(res.message, 4000, 'green lighten-1');
+        $('#checkout').unbind('click');
+        $('#checkout').on('click', function(){
+          Materialize.toast('You have already checked out', 4000, 'red lighten-1');
+        });
       });
-    });
-    $('#checkout').unbind('click');
-    $('#checkout').on('click', function(){
-      Materialize.toast('You have already checked out', 4000, 'red lighten-1');
-    });
+    }
   }
-  
 }
 
 function viewProducts(){

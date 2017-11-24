@@ -6,7 +6,8 @@ module.exports = {
 		console.log(req.body);
 		var i = req.body.index;
 
-		products[i].investments = parseInt(products[i].investments) + parseInt(req.body.value);
+		var product = products[i];
+		product.investments = parseInt(product.investments) + parseInt(req.body.value);
 
 	    fs.writeFile('public/products.json', JSON.stringify(products, null, 4), (err) => {
 	      if(err){
@@ -15,7 +16,8 @@ module.exports = {
 	      }
 	    });
 
-	    res.json({status: 200});
+	    console.log(product);
+	    res.json({status: 200, message: "Successfully invested $" + req.body.value + " in " + product.productName});
 	},
 
 	checkout: function(req, res){

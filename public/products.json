@@ -1,10 +1,24 @@
-[
+[[
     {
         "groupNumber": "1",
-        "productName": "Wooo",
-        "productDesc": "Yey",
+        "productName": "Product1",
+        "productDesc": "Prodcut Description 1",
         "imageFile": "mbuntu-1.jpg",
-        "investments": 2400
+        "investments": 8814
+    },
+    {
+        "groupNumber": "2",
+        "productName": "Product2",
+        "productDesc": "Product Description 2",
+        "imageFile": "mbuntu-2.jpg",
+        "investments": 8545
+    },
+    {
+        "groupNumber": "3",
+        "productName": "Product 3",
+        "productDesc": "Product Description 3",
+        "imageFile": "mbuntu-3.jpg",
+        "investments": 8994
     },
     {
         "groupNumber": "1",
@@ -48,4 +62,4 @@
         "imageFile": "ITproject logo.png",
         "investments": 0
     }
-]
+]]
