@@ -4,49 +4,49 @@
         "productName": "Product1",
         "productDesc": "Prodcut Description 1",
         "imageFile": "mbuntu-1.jpg",
-        "investments": 8814
+        "investments": 9514
     },
     {
         "groupNumber": "2",
         "productName": "Product2",
         "productDesc": "Product Description 2",
         "imageFile": "mbuntu-2.jpg",
-        "investments": 8545
+        "investments": 9245
     },
     {
         "groupNumber": "3",
         "productName": "Product 3",
         "productDesc": "Product Description 3",
         "imageFile": "mbuntu-3.jpg",
-        "investments": 8994
+        "investments": 10094
     },
     {
         "groupNumber": "1",
         "productName": "chever",
         "productDesc": "chuchu",
         "imageFile": "mbuntu-10.jpg",
-        "investments": 1300
+        "investments": 1800
     },
     {
         "groupNumber": "1",
         "productName": "sadsa",
         "productDesc": "chuewra",
         "imageFile": "mbuntu-13.jpg",
-        "investments": 1800
+        "investments": 2200
     },
     {
         "groupNumber": "2",
         "productName": "Yey",
         "productDesc": "woot wooot woot",
         "imageFile": "1.png",
-        "investments": 200
+        "investments": 1000
     },
     {
         "groupNumber": "3",
         "productName": "BUSakay",
         "productDesc": "BUSakay is your real time travel companion specially created for UPLB students. Save time by knowing the route, estimated time of arrival and departure in each bus stop, number of people waiting in each stop, and number of available seats on the bus.",
         "imageFile": "23619024_1997042430322335_1832235088_n.png",
-        "investments": 200
+        "investments": 1400
     },
     {
         "groupNumber": "11",
@@ -67,6 +67,6 @@
         "productName": "BuzzFood",
         "productDesc": "A cutting edge, state of the art mobile application that lets you search, discover and randomize restaurants, pubs and cafes within the vicinity of Los Banos, Laguna. This application will filter the restaurant menus based on the price range, specialty, user reviews and ratings , food type, and meal type categories plus a real-time update on which restaurants don't have a wait and can seat the user right away! Features also include, maps that will guide the users and memory suggestions on the user's previous orders.  This mobile app is perfect for UPLB students, faculties and anyone in Los Banos who can't think of a good place to eat.",
         "imageFile": "3.jpg",
-        "investments": 0
+        "investments": 1100
     }
 ]

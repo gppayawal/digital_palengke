@@ -480,11 +480,13 @@ var pins = [
 module.exports = {
 	loginstudent: function(req, res){
 		console.log(req.body);
+
 	}, 
 
 	invest: function(req, res){
 		var products = require('../public/products.json');
 		console.log(req.body);
+		console.log(res.body);
 		var i = req.body.index;
 
 		var product = products[i];
@@ -497,12 +499,14 @@ module.exports = {
 	      }
 	    });
 
+	    var data = "20130-26156 " + req.body.name + " " + req.body.value + "\n";
+	    fs.appendFile('public/investments.txt', data, function (err) {
+		  if (err) throw err;
+		  console.log('Saved!');
+		});
+
 	    console.log(product);
 	    res.json({status: 200, message: "Successfully invested $" + req.body.value + " in " + product.productName});
-	},
-
-	checkout: function(req, res){
-		console.log('checking out...');
 	},
 
 	logout: function(req, res){

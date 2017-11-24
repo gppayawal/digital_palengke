@@ -27,7 +27,7 @@ function checkout(e){
       var formData = 'index='+product.index+'&value='+product.value.formatMoney(0)+'&name='+key;
       $.post('/api/student/invest', formData, function(res){
         alert(JSON.stringify(res));
-        Materialize.toast(res.message, 4000, 'green lighten-1');
+        Materialize.toast(res.message, 4000, 'blue lighten-1');
         $('#checkout').unbind('click');
         $('#checkout').on('click', function(){
           Materialize.toast('You have already checked out', 4000, 'red lighten-1');
@@ -108,12 +108,12 @@ function viewProducts(){
           else{
             delete investments[this.name];
             updateSummary();
-            Materialize.toast("Removed investment in " + this.name, 4000, 'green lighten-1');
+            Materialize.toast("Removed investment in " + this.name, 4000, 'blue lighten-1');
           }
         else if(val > max-total)
           Materialize.toast("Amount is greater than remaining balance", 4000, 'red lighten-1');
         else{
-          Materialize.toast("Successfully placed $" + val.formatMoney(0) + " in " + this.name, 4000, 'green lighten-1');
+          Materialize.toast("Successfully placed $" + val.formatMoney(0) + " in " + this.name, 4000, 'blue lighten-1');
           investments[this.name] = {value:val, index:i};
           updateSummary();
         }
