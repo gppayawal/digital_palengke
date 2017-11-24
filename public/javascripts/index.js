@@ -1,9 +1,27 @@
 $(document).ready(function(){
 	$(".flip").flip({
-        trigger: 'hover'
-    });
-    $('.modal').modal();
-    $('.back').show();
+      trigger: 'hover'
+  });
+  $('.modal').modal();
+  $('.back').show();
+
+  $('#studentLogIn').submit(function(){
+    var body = 'pin='+$('#pin').val();
+    $.post('/api/student/login', body, function(res){
+      switch (res.status) {
+        case 404: message = 'Invalid PIN'; break
+        default: message = 'Error logging in!'; break;
+      }
+      console.log(res.status === 200)
+      if (res.status === 200) {
+        window.location.href="/student";
+      } else {
+        Materialize.toast(message, 4000, 'red');
+        $("#pin").val("");
+      }
+    })
+    return false;
+  });
 });
 
 function admin(){
@@ -43,4 +61,5 @@ function student(){
         });
         return false;
     });
+  $('#modal2').modal('open');
 }

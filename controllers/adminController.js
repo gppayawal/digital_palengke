@@ -10,16 +10,14 @@ module.exports = {
     },
 
 	addproduct: function(req, res){
-        console.log(req.body);
-        console.log(req.file);
-
         var data = {};
+        
         data.groupNumber = req.body.groupNum;
         data.productName = req.body.productName;
         data.productDesc = req.body.productDesc;
         data.imageFile = req.file.originalname;
         data.investments = 0;
-        
+
         var products = require('../public/products.json');
         products.push(data);
 
