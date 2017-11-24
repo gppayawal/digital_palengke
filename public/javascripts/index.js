@@ -6,24 +6,24 @@ $(document).ready(function(){
     $('.back').show();
 
     var i = 0;
+    var flag = 0;
     $('#formPIN').submit(function(e){
        e.preventDefault();
        var enteredStudentNumber = $('#studentNumber').val();
        var enteredPIN = $('#studentPIN').val();
-       console.log("FIND THIS: " + enteredStudentNumber + " " + enteredPIN);
        $.getJSON('public/pins.json', function(result){
             for(i = 0; i < result.length; i++){
-                console.log(result[i].studentNumber + " " + result[i].PIN);
-                if(enteredPIN == result[i].PIN && enteredStudentNumber == result[i].studentNumber){
+                if(enteredPIN == result[i].pin && enteredStudentNumber == result[i].studentNumber){
+                    flag = 1;
                     Materialize.toast('Success!', 3000, 'yellow darken-1');
                     window.location.href="/student";
-                }   
-                else{
-                    console.log('no match');
-                    Materialize.toast('Invalid PIN', 3000, 'yellow darken-1');
                 }    
             }
        });
+       if(flag == 0){
+                Materialize.toast('Invalid combination', 3000, 'yellow darken-1');
+                $('#formPIN').trigger('reset');
+        }
 
     });
 });
