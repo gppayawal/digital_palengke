@@ -10,11 +10,13 @@ $(document).ready(function(){
        e.preventDefault();
        var enteredStudentNumber = $('#studentNumber').val();
        var enteredPIN = $('#studentPIN').val();
+       console.log("FIND THIS: " + enteredStudentNumber + " " + enteredPIN);
        $.getJSON('public/pins.json', function(result){
             for(i = 0; i < result.length; i++){
-                if(enteredPIN == result[i].pin && enteredStudentNumber == result[i].studentNumber){
+                console.log(result[i].studentNumber + " " + result[i].PIN);
+                if(enteredPIN == result[i].PIN && enteredStudentNumber == result[i].studentNumber){
+                    Materialize.toast('Success!', 3000, 'yellow darken-1');
                     window.location.href="/student";
-                    break;
                 }   
                 else{
                     console.log('no match');
