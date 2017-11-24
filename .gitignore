@@ -1,2 +1,6 @@
-/public/*.json
-/public/uploads
+#ignore json files
+public/*.json
+
+
+#ignore uploads
+public/uploads
