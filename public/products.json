@@ -1,16 +1,30 @@
 [
     {
         "groupNumber": "1",
-        "productName": "Facebook",
-        "productDesc": "booking of the face",
+        "productName": "chever",
+        "productDesc": "qwe",
         "imageFile": "public/uploads/mbuntu-1.jpg",
-        "investments": 300
+        "investments": 500
     },
     {
         "groupNumber": "2",
-        "productName": "Product2",
-        "productDesc": "product 2 desc",
+        "productName": "asd",
+        "productDesc": "zxc",
         "imageFile": "public/uploads/mbuntu-2.jpg",
+        "investments": 400
+    },
+    {
+        "groupNumber": "3",
+        "productName": "zxc",
+        "productDesc": "rty",
+        "imageFile": "public/uploads/mbuntu-3.jpg",
+        "investments": 400
+    },
+    {
+        "groupNumber": "4",
+        "productName": "vbn",
+        "productDesc": "213",
+        "imageFile": "public/uploads/mbuntu-4.jpg",
         "investments": 0
     }
 ]
