@@ -14,14 +14,16 @@ body{
 
 #modal2{
 	width: 320px;
-	height: 390px; 
+	height: 400; 
 	font-weight: bold;
 	font-size: 20px;
 }
 
 #modal1{
 	width: 320px;
-	height: 310px;
+	height: 400px;
+	font-weight: bold;
+	font-size: 20px;
 }
 
 #submitPIN{

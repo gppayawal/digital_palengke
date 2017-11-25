@@ -2,29 +2,52 @@ var fs = require('fs');
 
 module.exports = {
 	addproduct: function(req, res){
-    var data = {};
-    data.groupNumber = req.body.groupNum;
-    data.productName = req.body.productName;
-    data.productDesc = req.body.productDesc;
-    data.imageFile = req.file.path;
-    data.investments = 0;
+    try{
+      var data = {};
+      data.groupNumber = req.body.groupNum;
+      data.productName = req.body.productName;
+      data.productDesc = req.body.productDesc;
+      data.imageFile = req.file.path;
+      data.investments = 0;
 
-    var products = require('../public/products.json');
-    products.push(data);
+      var products = require('../public/products.json');
+      products.push(data);
 
-    fs.writeFile('public/products.json', JSON.stringify(products, null, 4), (err) => {
-      if(err){
-        console.log(err);
-        throw err;
-      }
-    });
+      fs.writeFile('public/products.json', JSON.stringify(products, null, 4), (err) => {
+        if(err){
+          console.log(err);
+          throw err;
+        }
+      });
 
-    res.json({status: 200});
+      res.status(200).json({status: 200, product:data});
+    }catch(err){
+      console.log(err);
+      res.status(500).json({status: 500});
+    }
 	},
   
   delete: function(req, res){
     try{
-      res.send({status:200});
+      var products = require('../public/products.json');
+      var index = -1;
+      for(var i = 0; i < products.length ; i++){
+        if(products[i].productName == req.body.name)
+          index = i;
+      }
+
+      if(index == -1)
+        res.send({status:404});
+      else{
+        products.splice(index, 1);
+        fs.writeFile('public/products.json', JSON.stringify(products, null, 4), (err) => {
+          if(err){
+            console.log(err);
+            throw err;
+          }
+        });
+        res.send({status:200});
+      }
     }catch(err){
       res.send({status:500});
     }
@@ -45,6 +68,7 @@ module.exports = {
   },
 
 	logout: function(req, res){
-		res.redirect('/');
+    req.session.reset();
+    res.redirect('/');
 	}
 }

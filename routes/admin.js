@@ -16,7 +16,7 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage });
 
 router.post('/login', adminController.login);
-router.delete('/delete', adminController.delete);
+router.post('/delete', adminController.delete);
 router.post('/addproduct', upload.single('imageFile'), adminController.addproduct);
 router.get('/logout', adminController.logout);
 module.exports = router;

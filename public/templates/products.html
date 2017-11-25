@@ -1,14 +1,12 @@
-<div id='card' class='card-panel prods'>
+<div id='card-${productName}' class='card-panel prods'>
 	<header>
 		<h6 class='grpnum'> Group ${ groupNumber } </h6>
-		<a onclick='alert(${productName})' class='btn-floating btn-small waves-effect waves-light red'> <i class='material-icons'> delete </i> </a>
+		<a id='${productName}' class='delete btn-floating btn-small waves-effect waves-light red'> <i class='material-icons'> delete </i> </a>
 	</header>
 	<div class='center'>
-		<img class='logos' src=${imageFile}
-
-		>
+		<img class='logos' src=${imageFile}>
 	</div>
 	<p class='center'> ${ productName } </p>
 	<textarea readonly> ${ productDesc } </textarea>
-	<p> ${invesments} </p>
+	<p class='center'> Total Investments: ${investments} </p>
 </div>

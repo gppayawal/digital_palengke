@@ -1,92 +1,92 @@
 <!DOCTYPE html>
 
 <html lang="en">
-	<head>
-		<meta name="viewport" content="width=device-width, intial-scale=1" charset="utf-8">
-		<title> Digital Palengke</title>
-		<link rel="shortcut icon" href="public/images/favicon.ico" type="image/x-icon">
-		<link rel="stylesheet" href="materialize-css/css/materialize.min.css">
-		<link rel="stylesheet" href="public/stylesheets/index.css">
-		<link rel="type/javascipt" href="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js">
+    <head>
+        <meta name="viewport" content="width=device-width, intial-scale=1" charset="utf-8">
+        <title> Digital Palengke</title>
+        <link rel="shortcut icon" href="public/images/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="materialize-css/css/materialize.min.css">
+        <link rel="stylesheet" href="public/stylesheets/index.css">
+        <link rel="type/javascipt" href="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js">
 
-		<!-- Javascripts -->
-		<script src="jquery/jquery.min.js"></script>
-		<script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
-  		<script src="materialize-css/js/materialize.min.js"></script>
-		<script src="public/javascripts/index.js"></script>
-	</head>
+        <!-- Javascripts -->
+        <script src="jquery/jquery.min.js"></script>
+        <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
+        <script src="materialize-css/js/materialize.min.js"></script>
+        <script src="public/javascripts/index.js"></script>
+    </head>
 
-	<body>
-		<div class="container center">
-			<div class="row">
-				<div class="col s12">
-					<div class="flip"> 
-					    <div class="front"> 
-					        <img id="logo" src="public/images/logo.png" alt="logo" />
-					    </div> 
-					    <div class="back">
-					        <img id="logo" src="public/images/logo.png" alt="logo" />
-					    </div> 
-					    <script type="text/javascript"> $('.back').hide(); </script>
-					</div>
-				</div>
-				<div class="divider"></div>
-				<div class="col s6" style="padding-left: 15%;">				
-					<a class="waves-effect waves-light btn modal-trigger" id="login_admin" onclick="admin()">Admin</a>
-				</div>
-				<div class="col s6" style="padding-right: 15%;">
-					<a class="waves-effect waves-light btn modal-trigger" id="login_student" onclick="student()">Student</a>
-				</div>	
-			</div>
-		</div>
+    <body>
+        <div class="container center">
+            <div class="row">
+                <div class="col s12">
+                    <div class="flip"> 
+                        <div class="front"> 
+                            <img id="logo" src="public/images/logo.png" alt="logo" />
+                        </div> 
+                        <div class="back">
+                            <img id="logo" src="public/images/logo.png" alt="logo" />
+                        </div> 
+                        <script type="text/javascript"> $('.back').hide(); </script>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="col s6" style="padding-left: 15%;">             
+                    <a class="waves-effect waves-light btn modal-trigger" id="login_admin" onclick="admin()">Admin</a>
+                </div>
+                <div class="col s6" style="padding-right: 15%;">
+                    <a class="waves-effect waves-light btn modal-trigger" id="login_student" onclick="student()">Student</a>
+                </div>  
+            </div>
+        </div>
 
-		 <!-- LOGIN ADMIN Modal-->
-		<div id="modal1" class="modal">
-		    <div class="modal-content">
-		      	<h4>Login as Administrator</h4>
-		       	<div class="row center">
-					<form class="col s12" id="formAdmin">
-				    	<div class="row">
-				        	<div class="input-field col s11">
-					          <input required type="password" name="adminpass" placeholder="Password" id="adminPassword">
-					          <label for="adminPassword">Password</label>
-					        </div>
-					    </div> 
-			      	<div class="row center">
-			        	<div class="input-field col s12">
-				          <input value="Login" type="submit" class="btn waves-effect waves-light validate lighten-1">
-				        </div>
-			      	</div> 
-					</form>
-				</div>
-		    </div>
-		 </div>	
+         <!-- LOGIN ADMIN Modal-->
+         <div id="modal1" class="modal">
+          <div class="modal-content">
+            <h4>Login as Administrator</h4>
+            <div class="row center">
+                    <form class="col s12" id="formAdmin">
+                        <div class="row">
+                            <div class="input-field col s11">
+                              <input required type="password" name="adminpass" placeholder="Password" id="adminPassword">
+                              <label for="adminPassword">Password</label>
+                            </div>
+                        </div> 
+                    <div class="row center">
+                        <div class="input-field col s12">
+                          <input value="Login" type="submit" class="btn waves-effect waves-light validate lighten-1">
+                        </div>
+                    </div> 
+                    </form>
+                </div>
+          </div>
+         </div>
 
-		 <!-- LOGIN STUDENT Modal -->
-		<div id="modal2" class="modal">
-		  <div class="modal-content">
-		    <h4>Login as Student</h4>
-		    <div class="row center">
-					<form class="col s12" id="studentLogIn">
-					    <div class="row">
-					        <div class="input-field col s11">
-					          <input required id="pin" type="text" class="validate">
-					          <label for="pin">PIN</label>
-					        </div>
-					    </div> 
-			      	<div class="row center">
-			        	<div class="input-field col s12">
-				          <input value="Login" type="submit" class="btn waves-effect waves-light validate lighten-1">
-				        </div>
-			      	</div> 
-					</form>
-				</div>
-		  </div>
-		 </div>
-	 
-		<!-- Javascripts -->
-		<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-		<script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
-  	<script src="materialize-css/js/materialize.min.js"></script>		
-	</body>
+         <!-- LOGIN STUDENT Modal -->
+        <div id="modal2" class="modal">
+          <div class="modal-content">
+            <h4>Login as Student</h4>
+            <div class="row center">
+                    <form class="col s12" id="studentLogIn">
+                        <div class="row">
+                            <div class="input-field col s11">
+                              <input required id="pin" type="text" class="validate">
+                              <label for="pin">PIN</label>
+                            </div>
+                        </div> 
+                    <div class="row center">
+                        <div class="input-field col s12">
+                          <input value="Login" type="submit" class="btn waves-effect waves-light validate lighten-1">
+                        </div>
+                    </div> 
+                    </form>
+                </div>
+          </div>
+         </div>
+     
+        <!-- Javascripts -->
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
+    <script src="materialize-css/js/materialize.min.js"></script>       
+    </body>
 </html>

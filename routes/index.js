@@ -13,7 +13,10 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/admin', function(req, res, next){
-	res.sendFile('admin.html', { root: __dirname + '/../src/'});
+	if(req.session.admin)
+		res.sendFile('admin.html', { root: __dirname + '/../src/'});
+	else
+		res.redirect('/');
 });
 
 router.get('/student', function(req, res, next){
@@ -21,7 +24,7 @@ router.get('/student', function(req, res, next){
 	if(req.session.student)
 		res.sendFile('student.html', { root: __dirname + '/../src/'});
 	else
-    res.redirect('/');
+    	res.redirect('/');
 
 });
 

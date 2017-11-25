@@ -88,7 +88,7 @@ function viewProducts(){
               )
 					)	
 			)
-      $('.investForm'+i).on('submit', function(e){
+      $('#investForm'+i).on('submit', function(e){
         e.preventDefault();
         var i = this.id;
         var val = parseInt($('#value'+i).val());
