@@ -61,6 +61,8 @@ module.exports = {
       if(index == -1)
         res.send({status:404});
       else{
+        var filename = products[index].imageFile;
+
         products.splice(index, 1);
         fs.writeFile('public/products.json', JSON.stringify(products, null, 4), (err) => {
           if(err){
@@ -68,9 +70,12 @@ module.exports = {
             throw err;
           }
         });
+        
+        fs.unlink(filename);
         res.send({status:200});
       }
     }catch(err){
+      console.log(err);
       res.send({status:500});
     }
   },

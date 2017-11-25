@@ -1,26 +1,5 @@
 [
     {
-        "groupNumber": "1",
-        "productName": "chever",
-        "productDesc": "qwe",
-        "imageFile": "public/uploads/mbuntu-1.jpg",
-        "investments": 500
-    },
-    {
-        "groupNumber": "2",
-        "productName": "asd",
-        "productDesc": "zxc",
-        "imageFile": "public/uploads/mbuntu-2.jpg",
-        "investments": 400
-    },
-    {
-        "groupNumber": "3",
-        "productName": "zxc",
-        "productDesc": "rty",
-        "imageFile": "public/uploads/mbuntu-3.jpg",
-        "investments": 400
-    },
-    {
         "groupNumber": "4",
         "productName": "vbn",
         "productDesc": "213",
