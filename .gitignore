@@ -1,6 +1,3 @@
-#ignore json files
 public/*.json
-
-
-#ignore uploads
 public/uploads
+public/investments.txt

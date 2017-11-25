@@ -1,6 +1,28 @@
 var fs = require('fs');
 
 module.exports = {
+    loginadmin: function(req, res){
+       try{
+            var keys = require('../public/adminpass.json');
+            var admin = null;
+            keys.forEach(function(key){
+                if(key.password == req.body.password){
+                    admin = key;
+                }
+            });
+            if(admin){
+                req.session.admin = admin;
+                console.log(req.session);
+                res.send({status:200});
+            }
+            else{
+                res.send({status:404});
+            }
+       } catch(err){
+            res.send({status:500});
+       }
+    },
+
 	addproduct: function(req, res){
     try{
       var data = {};

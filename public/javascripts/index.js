@@ -23,31 +23,28 @@ $(document).ready(function(){
     return false;
   });
 
-  $('#formAdmin').on('submit', function(e){
-    e.preventDefault();
-    var body = 'password='+$('#adminPassword').val();
+   $('#adminLogIn').submit(function(){
+    var body = 'password='+$('#password').val();
     $.post('/api/admin/login', body, function(res){
       switch (res.status) {
-        case 400: message = 'Incorrect password'; break
+        case 404: message = 'Invalid Password'; break
         default: message = 'Error logging in!'; break;
       }
-      console.log(res.status === 200)
       if (res.status === 200) {
         window.location.href="/admin";
       } else {
         Materialize.toast(message, 4000, 'red');
-        $("#pin").val("");
+       $("#adminPassword").val("");
       }
+    })
+      return false;
     });
-  });
 });
-
-
 
 function admin(){
 	$('#modal1').modal('open');
 }
 
-function student(){
+function student(){    
   $('#modal2').modal('open');
 }

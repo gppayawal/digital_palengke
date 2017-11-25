@@ -25,16 +25,18 @@ module.exports = {
 
 	invest: function(req, res){
 		try{
+			var products = require('../public/products.json');
 			var i = req.body.index;
+
 			var product = products[i];
 			product.investments = parseInt(product.investments) + parseInt(req.body.value);
 
-		    fs.writeFile('public/products.json', JSON.stringify(products, null, 4), (err) => {
-		      if(err){
+	    	fs.writeFile('public/products.json', JSON.stringify(products, null, 4), (err) => {
+		      	if(err){
 		        console.log(err);
 		        throw err;
-		      }
-		    });
+		      	}
+	    	});
 
 		    var data = req.session.student.studentNumber + ' ' + req.body.name + ' ' + req.body.value + '\n';
 		    fs.appendFile('public/investments.txt', data, function(err){
@@ -55,7 +57,6 @@ module.exports = {
 
 		var products = require('../public/products.json');		
 		var productGroup = req.session.student.pitchDay == 1? day2 : day1;
-
 		var results = [];
 		products.forEach(function(product){
 			if(productGroup.indexOf(product.groupNumber) != -1){
@@ -65,12 +66,8 @@ module.exports = {
 		res.json(results);
 	},
 
-	checkout: function(req, res){
-		console.log('checking out...');
-	},
-
 	logout: function(req, res){
 		req.session.reset();
-    res.redirect('/');
+    	res.redirect('/');
 	}
 }
