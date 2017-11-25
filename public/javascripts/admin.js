@@ -1,11 +1,11 @@
 $(document).ready(function(){
-	$('.modal').modal();
-	viewProducts();
+    $('.modal').modal();
+    viewProducts();
 });
 
 $('#submitProductForm').submit(function(e){
-	e.preventDefault();
-	var formData = new FormData(this);
+  e.preventDefault();
+  var formData = new FormData(this);
   $.ajax({
     url : '/api/admin/addproduct',
     type: 'POST',
@@ -22,42 +22,42 @@ $('#submitProductForm').submit(function(e){
     },
     error: function(jqXHR, textStatus, errorThrown){
         Materialize.toast('Error!', 4000, 'red lighten-1');
-  	}
-	});
+    }
+    });
   return false;
 });
 
 function uploadForm(){
-	resetForm();
-	$('#form_modal').modal('open');
+    resetForm();
+    $('#form_modal').modal('open');
 }
 
 function resetForm(){
-	$('#submitProductForm').trigger('reset');
+    $('#submitProductForm').trigger('reset');
 }
 
 function viewProducts(){
-	$('#holder').empty();
-	$.getJSON( "public/products.json", function(products){
-		$('#count').text(products.length);
-		$.get('/public/templates/products.html', function(data){
-			$.template('productTemplate', data);
-			products.forEach(function(product){
-				$.tmpl('productTemplate', product).appendTo('#holder');
-			});
-		})
-	});
+    $('#holder').empty();
+    $.getJSON( "public/products.json", function(products){
+        $('#count').text(products.length);
+        $.get('/public/templates/productAdmin.html', function(data){
+            $.template('productTemplate', data);
+            products.forEach(function(product){
+                $.tmpl('productTemplate', product).appendTo('#holder');
+            });
+        })
+    });
 }
 
 $(document).on('click', '.delete', function(){
-	var id = this.id;
-	var body = 'name='+id;
-	$.post('/api/admin/delete', body, function(res){
-		if(res.status == 200){
-			Materialize.toast('Successfully deleted product', 4000, 'green lighten-1');
-			$('#card-'+id).remove();
-			$('#count').text(parseInt($('#count').text())-1);
-		}else
-			Materialize.toast('Error deleting product', 4000, 'red lighten-1');
-	});
+    var id = this.id;
+    var body = 'name='+id;
+    $.post('/api/admin/delete', body, function(res){
+        if(res.status == 200){
+            Materialize.toast('Successfully deleted product', 4000, 'green lighten-1');
+            $('#card-'+id).remove();
+            $('#count').text(parseInt($('#count').text())-1);
+        }else
+            Materialize.toast('Error deleting product', 4000, 'red lighten-1');
+    });
 });

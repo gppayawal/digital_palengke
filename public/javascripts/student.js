@@ -10,15 +10,14 @@ $(document).ready(function(){
 
 function checkout(e){
   e.preventDefault();
-  if(Object.keys(investments).length < 3)
+  if(Object.keys(investments).length < 1)
     Materialize.toast("Minimum of 3 products", 4000, 'red lighten-1');
   else if(confirm('Are you sure you want to check out?')){
     for(key in investments){
-      var product = investments[key];
+      var value = investments[key];
       
-      var formData = 'index='+product.index+'&value='+product.value.formatMoney(0)+'&name='+key;
+      var formData = 'value='+value.formatMoney(0)+'&name='+key;
       $.post('/api/student/invest', formData, function(res){
-        alert(JSON.stringify(res));
         Materialize.toast(res.message, 4000, 'blue lighten-1');
         $('#checkout').unbind('click');
         $('#checkout').on('click', function(){
@@ -32,92 +31,51 @@ function checkout(e){
 function viewProducts(){
 	var i = 0;
 	$('#holder').empty();
-	$.get('/api/student/products', function(result){
-	 	for(i = 0; i < result.length; i++){
-	 		$('#holder').append(
-				$('<div>')
-					.attr('class', 'card-panel prods')
-					.append(
-            $('<header>')
-              .append(
-                $('<h6>')
-                  .attr('class', 'grpnum')
-                  .text('Group ' + result[i].groupNumber)
-              )
-            ,
-            $('<br>')
-            ,
-            $('<br>')
-            ,
-						$('<div>')	
-							.attr('class', 'center')
-							.append(
-								$('<img>')
-									.attr('class', 'logos')
-									.attr('src', 'public/uploads/'+result[i].imageFile)
-						  )
-						,
-						$('<p>')
-              .attr('class', 'center')
-							.text(result[i].productName)
-						,
-						$('<textarea>')
-              .attr('readonly', 'true')
-              .text(result[i].productDesc)
-            ,
-            $('<form>')
-              .attr('id', i)
-              .attr('class', 'investForm'+i)
-              .attr('name', result[i].productName)
-              .append(
-                $('<input>')
-                  .attr('type', 'number')
-                  .attr('id', 'value'+i)
-                  .attr('min', 0)
-                  .attr('max', max)
-                  .attr('step', 100)
-                  .attr('value', 0)
-                ,
-                $('<input>')
-                  .attr('type', 'submit')
-                  .attr('id', 'invest'+i)
-                  .attr('class', 'btn waves-effect waves-light validate yellow lighten-1')
-                  .attr('value', 'INVEST')
-              )
-					)	
-			)
-      $('#investForm'+i).on('submit', function(e){
-        e.preventDefault();
-        var i = this.id;
-        var val = parseInt($('#value'+i).val());
-        if(Object.keys(investments).length >= 5 && !investments[this.name])
-          Materialize.toast("Maximum of 5 products", 4000, 'red lighten-1');
-        else if(val == 0)
-          if(!investments[this.name])
-            Materialize.toast("Cannot invest $0", 4000, 'red lighten-1');
-          else{
-            delete investments[this.name];
-            updateSummary();
-            Materialize.toast("Removed investment in " + this.name, 4000, 'blue lighten-1');
-          }
-        else if(val > max-total)
-          Materialize.toast("Amount is greater than remaining balance", 4000, 'red lighten-1');
-        else{
-          Materialize.toast("Successfully placed $" + val.formatMoney(0) + " in " + this.name, 4000, 'blue lighten-1');
-          investments[this.name] = {value:val, index:i};
-          updateSummary();
-        }
+	$.get('/api/student/products', function(products){
+	 	$.get('/public/templates/productStudent.html', function(data){
+      $.template('productTemplate', data);
+      products.forEach(function(product){
+        $.tmpl('productTemplate', product).appendTo('#holder');
       });
-	 	}
-	});
+    })
+  });
 }
+
+$(document).on('submit', '.invest', function(e){
+  e.preventDefault();
+  var formData = $(this).serializeArray();
+  var data = {};
+  formData.forEach(function(temp){
+      data[temp.name] = temp.value;
+  });
+  data.value = parseInt(data.value);
+
+  if(Object.keys(investments).length >= 5 && !investments[data.name])
+    Materialize.toast("Maximum of 5 products", 4000, 'red lighten-1');
+  else if(data.value == 0)
+    if(!investments[data.name])
+      Materialize.toast("Cannot invest $0", 4000, 'red lighten-1');
+    else{
+      delete investments[data.name];
+      updateSummary();
+      Materialize.toast("Removed investment in " + data.name, 4000, 'blue lighten-1');
+    }
+  else if(data.value > max-total)
+    Materialize.toast("Amount is greater than remaining balance", 4000, 'red lighten-1');
+  else{
+    Materialize.toast("Successfully placed $" + data.value.formatMoney(0) + " in " + data.name, 4000, 'blue lighten-1');
+    investments[data.name] = data.value;
+    updateSummary();
+  }
+  return false;
+});
 
 function updateSummary(){
   $('#products').empty();
   total = 0;
   Object.keys(investments).forEach(function(key){
-    $('#products').append($('<h6>').text(key + ' - $ ' + investments[key].value));
-    total += investments[key].value;
+    $('#products').append($('<h6>').text(key + ' - $ ' + investments[key]));
+    total += investments[key];
   });
   var balance = max - total;
   $('#balance').text('$ ' + balance.formatMoney(0));

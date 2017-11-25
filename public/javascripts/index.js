@@ -12,7 +12,6 @@ $(document).ready(function(){
         case 404: message = 'Invalid PIN'; break
         default: message = 'Error logging in!'; break;
       }
-      console.log(res.status === 200)
       if (res.status === 200) {
         window.location.href="/student";
       } else {
@@ -24,7 +23,7 @@ $(document).ready(function(){
   });
 
    $('#adminLogIn').submit(function(){
-    var body = 'password='+$('#password').val();
+    var body = 'password='+$('#adminPassword').val();
     $.post('/api/admin/login', body, function(res){
       switch (res.status) {
         case 404: message = 'Invalid Password'; break

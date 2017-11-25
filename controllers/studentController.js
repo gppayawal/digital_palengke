@@ -26,10 +26,18 @@ module.exports = {
 	invest: function(req, res){
 		try{
 			var products = require('../public/products.json');
-			var i = req.body.index;
+			var index = -1;
 
-			var product = products[i];
-			product.investments = parseInt(product.investments) + parseInt(req.body.value);
+			for(var i = 0 ; i < products.length ; i++){
+				if(products[i].productName == req.body.name){
+					index = i;
+				}
+			}
+			if(index == -1){
+				res.json({status:404});
+			} else {
+				var product = products[index];
+				product.investments = parseInt(product.investments) + parseInt(req.body.value);
 
 	    	fs.writeFile('public/products.json', JSON.stringify(products, null, 4), (err) => {
 		      	if(err){
@@ -46,9 +54,11 @@ module.exports = {
 		      }
 		    });
 		    res.json({status: 200, message: "Successfully invested $" + req.body.value + " in " + product.productName});
+			}
 		}catch(err){
+			console.log(err);
 			res.json({status: 500});
-		}var products = require('../public/products.json');
+		}
 	},
 
 	getProducts: function(req, res){

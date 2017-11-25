@@ -1,1 +1,16 @@
-[]
+[
+    {
+        "groupNumber": "1",
+        "productName": "Facebook",
+        "productDesc": "booking of the face",
+        "imageFile": "public/uploads/mbuntu-1.jpg",
+        "investments": 300
+    },
+    {
+        "groupNumber": "2",
+        "productName": "Product2",
+        "productDesc": "product 2 desc",
+        "imageFile": "public/uploads/mbuntu-2.jpg",
+        "investments": 0
+    }
+]
