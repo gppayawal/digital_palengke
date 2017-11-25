@@ -2,16 +2,30 @@ var fs = require('fs');
 
 module.exports = {
     loginadmin: function(req, res){
-       var password = "sunflower";
-       if(req.body == password){
-            console.log('yey');
-       } else console.log('no');
-       res.json({status: 200});
+       try{
+            var keys = require('../public/adminpass.json');
+            var admin = null;
+            keys.forEach(function(key){
+                if(key.password == req.body.password){
+                    admin = key;
+                }
+            });
+            if(admin){
+                req.session.admin = admin;
+                console.log(req.session);
+                res.send({status:200});
+            }
+            else{
+                res.send({status:404});
+            }
+       } catch(err){
+            res.send({status:500});
+       }
     },
 
 	addproduct: function(req, res){
         var data = {};
-        
+
         data.groupNumber = req.body.groupNum;
         data.productName = req.body.productName;
         data.productDesc = req.body.productDesc;
@@ -31,7 +45,8 @@ module.exports = {
         res.json({status: 200});
 	},
 
-	logoutadmin: function(req, res){
+	logout: function(req, res){
+        req.session.reset();
 		res.redirect('/');
 	}
 }

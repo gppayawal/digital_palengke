@@ -22,17 +22,52 @@ $(document).ready(function(){
     })
     return false;
   });
+
+   $('#adminLogIn').submit(function(){
+    var body = 'password='+$('#password').val();
+    $.post('/api/admin/login', body, function(res){
+      switch (res.status) {
+        case 404: message = 'Invalid Password'; break
+        default: message = 'Error logging in!'; break;
+      }
+      console.log(res.status === 200)
+      if (res.status === 200) {
+        window.location.href="/admin";
+      } else {
+        Materialize.toast(message, 4000, 'red');
+        $("#adminPassword").val("");
+      }
+    })
+      return false;
+    });
 });
 
 function admin(){
     $('#modal1').modal('open');
     $('#formAdmin').on('submit', function(e){
         e.preventDefault();
-        var enteredPassword = $('#adminPassword').val();
-        $.post('/api/admin/loginadmin', enteredPassword, function(res){
-          alert(res.body);
-        });  
-    });  
+        var formData = new FormData(this);
+        $.ajax({
+          url : '/api/student/loginadmin',
+          type: 'GET',
+          data: formData,
+          async: false,
+          cache: false,
+          contentType: false,
+          processData: false,
+          success:function(data, textStatus, jqXHR){
+              $('#modal1').modal('close');
+              Materialize.toast('Success!', 4000, 'red lighten-1');
+              window.location.href="/admin";
+          },
+          error: function(jqXHR, textStatus, errorThrown){
+              Materialize.toast('Error!', 4000, 'red lighten-1');
+              console.log(errorThrown);
+          }
+        });
+        return false;
+    });
+    $('#modal1').modal('open');
 }
 
 function student(){
@@ -40,7 +75,6 @@ function student(){
     $('#formPIN').submit(function(e){
         e.preventDefault();
         var formData = new FormData(this);
-        alert('yo here');
        $.ajax({
           url : '/api/student/loginstudent',
           type: 'GET',

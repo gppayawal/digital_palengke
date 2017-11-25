@@ -13,7 +13,11 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/admin', function(req, res, next){
-	res.sendFile('admin.html', { root: __dirname + '/../src/'});
+	console.log(req.session);
+	if(req.session.admin)
+		res.sendFile('admin.html', { root: __dirname + '/../src/'});
+	else
+		res.redirect('/');
 });
 
 router.get('/student', function(req, res, next){

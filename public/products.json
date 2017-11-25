@@ -4,45 +4,45 @@
         "productName": "Product1",
         "productDesc": "Prodcut Description 1",
         "imageFile": "mbuntu-1.jpg",
-        "investments": 9514
+        "investments": 10089
     },
     {
         "groupNumber": "2",
         "productName": "Product2",
         "productDesc": "Product Description 2",
         "imageFile": "mbuntu-2.jpg",
-        "investments": 9245
+        "investments": 9545
     },
     {
         "groupNumber": "3",
         "productName": "Product 3",
         "productDesc": "Product Description 3",
         "imageFile": "mbuntu-3.jpg",
-        "investments": 10094
+        "investments": 10694
     },
     {
-        "groupNumber": "1",
+        "groupNumber": "4",
         "productName": "chever",
         "productDesc": "chuchu",
         "imageFile": "mbuntu-10.jpg",
-        "investments": 1800
+        "investments": 1925
     },
     {
-        "groupNumber": "1",
+        "groupNumber": "5",
         "productName": "sadsa",
         "productDesc": "chuewra",
         "imageFile": "mbuntu-13.jpg",
-        "investments": 2200
+        "investments": 3000
     },
     {
-        "groupNumber": "2",
+        "groupNumber": "6",
         "productName": "Yey",
         "productDesc": "woot wooot woot",
         "imageFile": "1.png",
         "investments": 1000
     },
     {
-        "groupNumber": "3",
+        "groupNumber": "7",
         "productName": "BUSakay",
         "productDesc": "BUSakay is your real time travel companion specially created for UPLB students. Save time by knowing the route, estimated time of arrival and departure in each bus stop, number of people waiting in each stop, and number of available seats on the bus.",
         "imageFile": "23619024_1997042430322335_1832235088_n.png",

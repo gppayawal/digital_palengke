@@ -38,7 +38,7 @@ module.exports = {
 	      	}
     	});
 
-    	var data = req.session.student.studentNumber + req.body.name + " " + req.body.value + "\n";
+    	var data = req.session.student.studentNumber + " " + req.body.name + " " + req.body.value + "\n";
 	    fs.appendFile('public/investments.txt', data, function (err) {
 		  if (err) throw err;
 		  console.log('Saved!');

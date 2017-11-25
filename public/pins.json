@@ -1,1 +1,12 @@
-[]
+[
+	{
+		"studentNumber": "2013-09935",
+		"pin": "09935LHFQT",
+		"pitchDay": 1
+	},
+	{
+		"studentNumber": "2015-04243",
+		"pin": "04243TDMYV",
+		"pitchDay": 2
+	}	
+]
