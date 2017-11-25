@@ -46,7 +46,6 @@ $(document).ready(function(){
 
 function admin(){
 	$('#modal1').modal('open');
-    var password = "star";
 }
 
 function student(){

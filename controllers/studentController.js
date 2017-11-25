@@ -24,22 +24,29 @@ module.exports = {
 	}, 
 
 	invest: function(req, res){
-		var products = require('../public/products.json');
-		console.log(req.body);
-		var i = req.body.index;
+		try{
+			var i = req.body.index;
+			var product = products[i];
+			product.investments = parseInt(product.investments) + parseInt(req.body.value);
 
-		var product = products[i];
-		product.investments = parseInt(product.investments) + parseInt(req.body.value);
+		    fs.writeFile('public/products.json', JSON.stringify(products, null, 4), (err) => {
+		      if(err){
+		        console.log(err);
+		        throw err;
+		      }
+		    });
 
-    fs.writeFile('public/products.json', JSON.stringify(products, null, 4), (err) => {
-      if(err){
-        console.log(err);
-        throw err;
-      }
-    });
-
-    console.log(product);
-    res.json({status: 200, message: "Successfully invested $" + req.body.value + " in " + product.productName});
+		    var data = req.session.student.studentNumber + ' ' + req.body.name + ' ' + req.body.value + '\n';
+		    fs.appendFile('public/investments.txt', data, function(err){
+		    if(err){
+		        console.log(err);
+		        throw err;
+		      }
+		    });
+		    res.json({status: 200, message: "Successfully invested $" + req.body.value + " in " + product.productName});
+		}catch(err){
+			res.json({status: 500});
+		}var products = require('../public/products.json');
 	},
 
 	getProducts: function(req, res){
