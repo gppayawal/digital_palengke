@@ -38,53 +38,15 @@ function resetForm(){
 function viewProducts(){
 	var i = 0;
 	$('#holder').empty();
-	$.getJSON( "public/products.json", function(result){
-	$('#count').text(result.length);
-	 	for(i = 0; i < result.length; i++){
-	 		$('#holder').append(
-				$('<div>')
-					.attr('id', 'cardId'+i)
-					.attr('class', 'card-panel prods')
-					.append(
-						$('<header>')
-							.append(
-								$('<h6>')
-									.attr('class', 'grpnum')
-									.text('Group ' + result[i].groupNumber)
-								,
-								$('<a>')
-									.attr('id', i)
-									.attr('onclick', 'removecard()')
-									.attr('class', 'btn-floating btn-small waves-effect waves-light red')
-									.append(
-										$('<i>')
-											.attr('class', 'material-icons')
-											.text('delete')
-									)	
-							)
-						,
-						$('<div>')	
-							.attr('class', 'center')
-							.append(
-								$('<img>')
-									.attr('class', 'logos')
-									.attr('src', 'public/uploads/'+result[i].imageFile)
-
-							)
-						,
-						$('<p>')
-							.attr('class', 'center')
-							.text(result[i].productName)
-						,
-						$('<textarea>')
-							.attr('readonly', 'true')
-							.text(result[i].productDesc)
-						,
-						$('<p>')
-							.text('Total Investment: $ ' + result[i].investments)
-					)	
-			)
-	 	}
+	$.getJSON( "public/products.json", function(products){
+	$('#count').text(products.length);
+	 	$.get('public/templates/products.html', function(data){
+	 		$.template('productTemplate',data);
+	 		products.forEach(function(product){
+	 			alert(JSON.stringify(product));
+	 			$.tmpl('productTemplate', product).appendTo('#holder');
+	 		});
+	 	});
 	});
 }
 

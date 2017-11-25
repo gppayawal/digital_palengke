@@ -22,25 +22,31 @@ $(document).ready(function(){
     })
     return false;
   });
+
+  $('#formAdmin').on('submit', function(e){
+    e.preventDefault();
+    var body = 'password='+$('#adminPassword').val();
+    $.post('/api/admin/login', body, function(res){
+      switch (res.status) {
+        case 400: message = 'Incorrect password'; break
+        default: message = 'Error logging in!'; break;
+      }
+      console.log(res.status === 200)
+      if (res.status === 200) {
+        window.location.href="/admin";
+      } else {
+        Materialize.toast(message, 4000, 'red');
+        $("#pin").val("");
+      }
+    });
+  });
 });
+
+
 
 function admin(){
 	$('#modal1').modal('open');
     var password = "star";
-    $('#formAdmin').on('submit', function(e){
-        e.preventDefault();
-        var enteredPassword = $('#adminPassword').val();
-        console.log(enteredPassword + "   " + password);
-
-        if(enteredPassword != password){
-            Materialize.toast('You shall not pass!', 3000, 'red lighten-1');
-            $('#adminPassword').trigger('reset');
-        }
-        else{
-            window.location.href="/admin";
-        }
-    });
-   
 }
 
 function student(){

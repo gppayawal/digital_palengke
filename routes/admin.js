@@ -9,13 +9,14 @@ var storage = multer.diskStorage({
         callback(null, './public/uploads/');
     },
     filename: function (request, file, callback) {
-        console.log(file);
         callback(null, file.originalname)
     }
 });
 
 var upload = multer({ storage: storage });
 
+router.post('/login', adminController.login);
+router.delete('/delete', adminController.delete);
 router.post('/addproduct', upload.single('imageFile'), adminController.addproduct);
 router.get('/logout', adminController.logout);
 module.exports = router;

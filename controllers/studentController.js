@@ -13,7 +13,6 @@ module.exports = {
 			if(student){
 				delete student.pin;
 				req.session.student = student;
-				console.log(req.session);
 				res.send({status:200});
 			}
 			else{
