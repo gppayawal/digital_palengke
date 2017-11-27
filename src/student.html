@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<title> Digital Palengke</title>
+		<link rel="shortcut icon" href="public/images/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="materialize-css/css/materialize.min.css">
+		<link rel="stylesheet" href="public/stylesheets/student.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	</head>
+
+	<body>
+		<div class="side-nav fixed">
+			<div class="container">
+				<div class="row" style="margin-top: 7%;">
+					<img id="logo" src="public/images/logo.png" alt="logo" style="width: 150px; height: 150px;"/>
+				</div>
+			</div>
+			<div class="row" style="margin-left: 2%;">
+				<div class="col s12"> <h4> Hi, Student! </h4> </div>
+				<div class="col s12"> <h6> Your current balance </h6><b id='balance'></b> </div>
+			</div>
+			<div class="row" style="margin-left: 2%;">
+				<div class="col s12"> <h5> Products - Amount </h5> </div>
+				<div class="col s12" id="products"> </div>
+			</div>
+			<div class='navdiv'>
+				<button id='checkout' class='waves-effect waves-light btn-flat modal-trigger'>Checkout</button>
+			</div>
+			<div class='navdiv'>
+				<a class='waves-effect waves-light btn-flat modal-trigger' href='/api/student/logout'>Sign Out</a>
+			</div>	
+		</div>
+
+		<div class="container">
+			<div class="row col s12 center"> <h2> Product Catalogue </h2> </div>
+			<div id="product_holder" class="row"">
+				<div id="holder" class="center">
+				</div>
+			</div>
+		</div>
+		
+		<!-- Javascripts -->
+		<script src="jquery/jquery.min.js"></script>
+		<script src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
+		<script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
+		<script src="materialize-css/js/materialize.min.js"></script>
+		<script src="public/javascripts/student.js"></script>
+	</body>
+</html>	

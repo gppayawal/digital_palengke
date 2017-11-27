@@ -1,0 +1,92 @@
+body{
+	background-color: #262626;
+	color: white;
+	font-family: "Verdana", "Arial"; 
+}
+
+h2{
+	font-family: "Lucida Console", "Courier New", monospace;
+}
+
+h6, p{
+	font-weight: bold;
+}
+
+header{
+	text-align: right;
+}
+
+textarea{
+	height: 170px;
+}
+
+.btn{
+	color: black;
+}
+
+.btn-flat{
+	color: white;
+}
+
+.card-panel{
+	width: 380px;
+	height: 500px;
+	background-color: #FFFFA5;
+	border-radius: 20px;
+	font-size: 14px;
+}
+
+.container{
+	margin: 0 auto; 
+	margin-left: 25%;
+}
+
+.grpnum{
+	float: left;
+}
+
+.logos{
+	width: 150px;
+	height: 150px;
+}
+
+.modal{
+	color: black;
+	width: 600px;
+}
+
+.modal-header{
+	font-family: "Lucida Console", "Courier New", monospace;
+	font-size: 30px;
+	font-weight: bold;
+	padding-left: 2%;
+}
+
+.navdiv{
+	background-color: grey;
+}
+
+.navdiv:hover{
+	opacity: 0.7;
+}
+
+.prods{
+	float:left;
+	margin: 2%;
+	color: black;
+	text-align: left;
+}
+
+.side-nav{
+	background-color: purple;
+}
+
+#holder{
+	text-align: center;
+	background-color: blue;
+}
+
+#product_holder{
+	margin: 0 auto;
+	margin-left: 3%;
+}

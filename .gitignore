@@ -1,1 +1,3 @@
-public/products.js
+public/*.json
+public/uploads
+public/investments.txt

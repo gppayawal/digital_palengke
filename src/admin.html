@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html lang='en'>
+	<head>
+		<title> Digital Palengke</title>
+		<link rel='shortcut icon' href='public/images/favicon.ico' type='image/x-icon'>
+		<link rel='stylesheet' href='materialize-css/css/materialize.min.css'>
+		<link rel='stylesheet' href='public/stylesheets/admin.css'>
+		<link rel='type/javascipt' href='https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js'>
+		<link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+	</head>
+
+	<body>
+		<div class='side-nav fixed'>
+			<div class='container'>
+				<div class='row' style='margin-top: 7%;'>
+					<img id='logo' src='public/images/logo.png' alt='logo' style='width: 150px; height: 150px;'/>
+				</div>
+			</div>
+			<div class='row' style='margin-left: 2%;'>
+				<div class='col s12'> <h4> Hi, Admin! </h4> </div>
+				<div class='col s12'> <h6> Total Number of Products</h6><b id='count'>0</b> </div>
+			</div>
+			<div class='navdiv'>
+				<a class='waves-effect waves-light btn-flat modal-trigger' onclick='uploadForm()'>Add Product</a>
+			</div>	
+			<div class='navdiv'>
+				<a class='waves-effect waves-light btn-flat modal-trigger' href='/api/admin/logout'>Sign Out</a>
+			</div>	
+			
+		</div>
+
+		<div class='container'>
+			<div class='row col s12 center'> <h2> Product Catalogue </h2> </div>
+			<div id='product_holder' class='row'>
+				<div id='holder' class='center'>
+				</div>
+			</div>
+		</div>
+
+		<div id='form_modal' class='modal'>
+			<div class='modal-header'>
+				Add a Product 
+			</div>
+			<div class='modal-content'>
+		      <form id='submitProductForm' enctype='multipart/form-data'>
+		      	<div class='row'>
+		      		<div class='input-field col s4'>
+		      			<i class='medium material-icons prefix'>group</i>
+		      			<input required name='groupNum' id='groupNum' type='number' min='1' max='27' class='validate'>
+		      			<label for='grp_number'> Group #</label>
+		      		</div>	
+				    <div class='input-field col s8'>
+				    	<i class='medium material-icons prefix'>web</i>
+				    	<input required name='productName' id='productName' type='text' class='validate'>
+				    	<label for='prod_name'>Product Name</label>
+				    </div>
+				</div>
+				<div class='row'>
+					<div class='input-field col s12'>
+			        	<i class='medium material-icons prefix'>mode_edit</i>
+			        	<textarea required name='productDesc' id='productDesc' class='materialize-textarea'></textarea>
+			        	<label for='icon_prefix2'>Product Description</label>
+			        </div>
+				</div>
+				 <div class='file-field input-field'>
+			      <div class='btn' style='background-color: darkgrey;'>
+			        <span> <i class='medium material-icons'>file_upload</i></span>
+			        <input required type='file' name='imageFile' id='image' accept='.jpg, .jpeg, .png'>
+			      </div>
+			      <div class='file-path-wrapper col s10'>
+			        <input id='imageFilename' class='file-path validate' type='text' placeholder='Add file'>
+			      </div>
+			    </div>
+			     <div class='row' style='text-align: right;'>
+			     	<div class='input-field col s12'>
+			     		<a class='modal-close waves-effect waves-green btn-flat' style='color: black;'>Cancel</a>
+			     		<input id='submitBtn' class='btn waves-effect waves-light validate yellow lighten-1' type='submit' value='Submit'/>
+			     	</div>
+			     </div>
+		      </form>
+		    </div>
+		</div>    
+
+		<!-- Javascripts -->
+		<script src='jquery/jquery.min.js'></script>
+		<script src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
+		<script src='materialize-css/js/materialize.min.js'></script>
+		<script src='public/javascripts/admin.js'></script>
+	</body>
+</html>	

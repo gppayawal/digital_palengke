@@ -1,0 +1,85 @@
+body{
+	background-image: url('../images/bg.jpeg');
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+	background-size: cover;
+	font-family: "Lucida Console", "Courier New", monospace, "Georgia", serif; 
+}
+
+#logo{
+	width: 300px;
+	height: 300px;
+}
+
+#modal2{
+	width: 320px;
+	height: 400; 
+	font-weight: bold;
+	font-size: 20px;
+}
+
+#modal1{
+	width: 320px;
+	height: 400px;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+#submitPIN{
+	width: 100px;
+	height: 50px;
+	font-size: 20px;
+	float: right;
+}
+
+.flip {
+    height: 199px;
+    width: 300px;
+    margin: 0 auto;
+}
+.flip img {
+    width: 300px;
+    height: auto;
+}
+
+.row{
+	margin-top: 8%;
+}
+
+.s6{
+	margin-top: 18%; 
+}
+
+.btn{
+	background-color: purple; 
+	height: 75px;
+	width: 190px;
+	font-size: 30px;
+	text-align: center;
+	padding-top: 18px;
+	border-radius: 10px;
+	font-weight: bold;
+}
+
+.btn:hover{
+	background-color: #663096;
+	height: 80px;
+	width: 195px;
+	font-size: 31px;
+	padding-top: 20px;
+}
+
+.profile{
+    border: 3px solid #B7B7B7;
+    padding: 10px;
+    margin-top: 10px;
+    width: 350px;
+    background-color: #F7F7F7;
+    height: 160px;
+}
+.profile p{margin: 0px 0px 10px 0px;}
+.head{margin-bottom: 10px;}
+.head a{float: right;}
+.profile img{width: 100px;float: left;margin: 0px 10px 10px 0px;}
+.proDetails{float: left;}
