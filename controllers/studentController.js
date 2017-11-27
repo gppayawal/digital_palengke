@@ -5,13 +5,14 @@ module.exports = {
 		try{
 			var records = require('../public/pins.json');
 			var student = null;
+
 			records.forEach(function(record){
-				if(record.pin == req.body.pin)	{
+				if(record.pin_code == req.body.pin)	{
 					student = record;
 				}
 			});
 			if(student){
-				delete student.pin;
+				delete student.pin_code;
 				req.session.student = student;
 				res.send({status:200});
 			}

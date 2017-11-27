@@ -1,2 +1,9 @@
 [
+    {
+        "groupNumber": "1",
+        "productName": "sda",
+        "productDesc": "sadas",
+        "imageFile": "public/uploads/mbuntu-1.jpg",
+        "investments": 0
+    }
 ]

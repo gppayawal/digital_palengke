@@ -10,7 +10,7 @@ $(document).ready(function(){
 
 function checkout(e){
   e.preventDefault();
-  if(Object.keys(investments).length < 1)
+  if(Object.keys(investments).length < 3)
     Materialize.toast("Minimum of 3 products", 4000, 'red lighten-1');
   else if(confirm('Are you sure you want to check out?')){
     for(key in investments){
@@ -50,8 +50,8 @@ $(document).on('submit', '.invest', function(e){
   });
   data.value = parseInt(data.value);
 
-  if(Object.keys(investments).length >= 5 && !investments[data.name])
-    Materialize.toast("Maximum of 5 products", 4000, 'red lighten-1');
+  if(Object.keys(investments).length >= 10 && !investments[data.name])
+    Materialize.toast("Maximum of 10 products", 4000, 'red lighten-1');
   else if(data.value == 0)
     if(!investments[data.name])
       Materialize.toast("Cannot invest $0", 4000, 'red lighten-1');
