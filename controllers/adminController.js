@@ -62,6 +62,7 @@ module.exports = {
         res.send({status:404});
       else{
         var filename = products[index].imageFile;
+        var productName = products[index].productName;
 
         products.splice(index, 1);
         fs.writeFile('public/products.json', JSON.stringify(products, null, 4), (err) => {
@@ -72,6 +73,19 @@ module.exports = {
         });
         
         fs.unlink(filename);
+
+        var records = require("../public/pins.json");
+        records.forEach(function(record){
+          if(record.investments[productName])
+            delete record.investments[productName];
+        });
+
+        fs.writeFile('public/pins.json', JSON.stringify(records, null, 4), (err) => {
+          if(err){
+            console.log(err);
+            throw err;
+          }
+        });
         res.send({status:200});
       }
     }catch(err){
@@ -97,5 +111,5 @@ module.exports = {
 	logout: function(req, res){
     req.session.reset();
     res.redirect('/');  
-}
+  }
 }

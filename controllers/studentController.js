@@ -12,7 +12,6 @@ module.exports = {
 				}
 			});
 			if(student){
-				//delete student.pin_code;
 				req.session.student = student;
 				res.send({status:200});
 			}
@@ -20,6 +19,7 @@ module.exports = {
 				res.send({status:404});
 			}
 		}catch(err){
+			console.log(err);
 			res.send({status:500});
 		}
 	}, 
@@ -47,14 +47,14 @@ module.exports = {
 		      	}
 	    	});
 
-		    var data = req.session.student.studentNumber + ' ' + req.body.name + ' ' + req.body.value + '\n';
+		    var data = req.session.student.studentNumber + ' ' + req.body.name + ' ' + req.body.printing + '\n';
 		    fs.appendFile('public/investments.txt', data, function(err){
 		    if(err){
 		        console.log(err);
 		        throw err;
 		      }
 		    });
-		    res.json({status: 200, message: "Successfully invested $" + req.body.value + " in " + product.productName});
+		    res.json({status: 200, message: "Successfully invested $" + req.body.printing + " in " + product.productName});
 			}
 		}catch(err){
 			console.log(err);
@@ -70,11 +70,45 @@ module.exports = {
 		var productGroup = req.session.student.pitchDay == 1? day2 : day1;
 		var results = [];
 		products.forEach(function(product){
+		
 			if(productGroup.indexOf(product.groupNumber) != -1){
 				results.push(product);
 			}
 		});
-		res.json(results);
+		console.log(req.session);
+		res.json({array:results, investments: req.session.student.investments});
+	},
+
+	update: function(req, res){
+		try{
+			var records = require('../public/pins.json');
+			var student = null;
+
+			records.forEach(function(record){
+				if(record.studentNumber == req.session.student.studentNumber)	{
+					student = record;
+				}
+			});
+			if(student){
+				student.investments = JSON.parse(req.body.investments);
+				req.session.student = student;	
+
+	      fs.writeFile('public/pins.json', JSON.stringify(records, null, 4), (err) => {
+	        if(err){
+	          console.log(err);
+	          throw err;
+	        }
+      	});
+
+      	res.send({status:200});
+			}
+			else{
+				res.send({status:404});
+			}
+		}catch(err){
+			console.log(err);
+			res.send({status:500});
+		}
 	},
 
 	logout: function(req, res){
