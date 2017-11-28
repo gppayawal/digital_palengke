@@ -1,0 +1,108 @@
+[
+    {
+        "groupNumber": "1",
+        "productName": "Facebook",
+        "productDesc": "for booking of the face",
+        "imageFile": "undefined",
+        "investments": 700
+    },
+    {
+        "groupNumber": "2",
+        "productName": "gelato",
+        "productDesc": "italian gelato",
+        "imageFile": "undefined",
+        "investments": 0
+    },
+    {
+        "groupNumber": "3",
+        "productName": "ice cream",
+        "productDesc": "birthday mo ngayon it's time to party",
+        "imageFile": "undefined",
+        "investments": 0
+    },
+    {
+        "groupNumber": "4",
+        "productName": "intel",
+        "productDesc": "intel core i5",
+        "imageFile": "undefined",
+        "investments": 0
+    },
+    {
+        "groupNumber": "5",
+        "productName": "mambo",
+        "productDesc": "mambo no 5",
+        "imageFile": "undefined",
+        "investments": 0
+    },
+    {
+        "groupNumber": "5",
+        "productName": "mambo",
+        "productDesc": "mambo no 5",
+        "imageFile": "undefined",
+        "investments": 0
+    },
+    {
+        "groupNumber": "2",
+        "productName": "gelato",
+        "productDesc": "italian gelato",
+        "imageFile": "undefined",
+        "investments": 0
+    },
+    {
+        "groupNumber": "1",
+        "productName": "Facebook",
+        "productDesc": "for booking of the face",
+        "imageFile": "undefined",
+        "investments": 0
+    },
+    {
+        "groupNumber": "1",
+        "productName": "Facebook",
+        "productDesc": "for booking of the face",
+        "imageFile": "undefined",
+        "investments": 0
+        "investments": 109900
+    },
+    {
+        "groupNumber": "4",
+        "productName": "Scott",
+        "productDesc": "Good tiger",
+        "imageFile": "undefined",
+        "investments": 1200
+    },
+    {
+        "groupNumber": "2",
+        "productName": "Twitter",
+        "productDesc": "tweet tweet tweet",
+        "imageFile": "undefined",
+        "investments": 2700
+    },
+    {
+        "groupNumber": "3",
+        "productName": "Wikipedia",
+        "productDesc": "Fake encyclopedia",
+        "imageFile": "undefined",
+        "investments": 100
+    },
+    {
+        "groupNumber": "7",
+        "productName": "Youtube",
+        "productDesc": "Video player tube",
+        "imageFile": "undefined",
+        "investments": 1300
+    },
+    {
+        "groupNumber": "10",
+        "productName": "Evernote",
+        "productDesc": "your forevernotes",
+        "imageFile": "undefined",
+        "investments": 1000
+    },
+    {
+        "groupNumber": "18",
+        "productName": "Microsoft Word",
+        "productDesc": "Wooord",
+        "imageFile": "undefined",
+        "investments": 2700
+    }
+]
