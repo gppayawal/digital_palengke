@@ -3,7 +3,7 @@ var fs = require('fs');
 module.exports = {
     loginadmin: function(req, res){
        try{
-          var keys = [{password: 'yey', name:'diego'}];//require('../public/adminpass.json');
+          var keys = require('../public/adminpass.json');
           var admin = null;
           keys.forEach(function(key){
               if(key.password == req.body.password){
