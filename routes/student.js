@@ -3,7 +3,8 @@ var router = express.Router();
 var studentController = require('../controllers/studentController');
 
 router.get('/logout', studentController.logout);
-router.post('/invest', studentController.invest)
+router.post('/invest', studentController.invest);
 router.post('/login', studentController.loginstudent);
 router.get('/products', studentController.getProducts);
+router.post('/update', studentController.update);
 module.exports = router;

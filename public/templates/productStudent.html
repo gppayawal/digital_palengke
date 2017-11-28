@@ -10,7 +10,7 @@
 	<textarea readonly style="overflow:auto;resize:none"> ${ productDesc } </textarea>
 	<form class='invest'>
 		<input type="hidden" name='name' value='${productName}'/>
-		<input required type='number' name="value" id='value ${productName}' min='0' max='1000000' step='100000' value='0'/>
+		<input required type='number' name="value" id='value ${productName}' min='0' max='1000000' step='100000' value='${val}'/>
 		<input type="submit" value="INVEST" class='submit btn waves-effect waves-light validate yellow lighten-1'/>
 	</form>
 </div>
