@@ -42,13 +42,22 @@ textarea {
 	margin-left: 25%;
 }
 
+.remove{
+	width: 10px;
+	text-align: center;
+}
+
+i{
+	color: red;
+}
+
 .grpnum{
 	float: left;
 }
 
 .logos{
-	width: 150px;
-	height: 150px;
+	max-width:100%;
+	height:150px;
 }
 
 .modal{

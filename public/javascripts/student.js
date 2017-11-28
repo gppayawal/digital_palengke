@@ -85,13 +85,33 @@ $(document).on('submit', '.invest', function(e){
   return false;
 });
 
+
 function updateSummary(){
   $('#products').empty();
   total = 0;
   Object.keys(investments).forEach(function(key){
-    $('#products').append($('<h6>').text(key + ' - $ ' + investments[key].formatMoney(0)));
+    $('#products').append(
+      $('<div>')
+      .attr('id', 'entry'+key)
+      .append(
+      $('<a>')
+        .attr('id', key)
+        .attr('class', 'remove btn-flat btn-small waves-effect waves-light')
+        .append(
+            $('<i>')
+              .attr('class', 'material-icons')
+              .text('remove_circle_outline')
+        )
+      ,  
+      $('<h6>')
+        .text(key + ' - $ ' + investments[key])
+      ,
+      $('<br>')  
+    )
+    );
     total += investments[key];
   });
+
   var balance = max - total;
   $('#balance').text('$ ' + balance.formatMoney(0));
   var body = 'investments='+JSON.stringify(investments);
@@ -101,6 +121,21 @@ function updateSummary(){
   })
 }
 
+$(document).on('click', '.remove', function(){
+    var id = this.id;
+
+    $('#entry'+id).remove();
+
+    Object.keys(investments).forEach(function(key){
+      var entry = null;
+      if(key == id){
+        delete investments[key];
+        Materialize.toast('Removed product investment', 3000, 'red lighten-1'); 
+      }  
+    });
+
+    updateSummary();
+});
 
 Number.prototype.formatMoney = function(c, d, t){
   var n = this, c = isNaN(c = Math.abs(c)) ? 2 : c, d = d == undefined ? "." : d, t = t == undefined ? "," : t, s = n < 0 ? "-" : "", i = String(parseInt(n = Math.abs(Number(n) || 0).toFixed(c))), j = (j = i.length) > 3 ? j % 3 : 0;
