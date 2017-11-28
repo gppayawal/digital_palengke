@@ -19,6 +19,7 @@ router.get('/admin', function(req, res, next){
 });
 
 router.get('/student', function(req, res, next){
+	console.log(req.session);
 	if(req.session.student)
 		res.sendFile('student.html', { root: __dirname + '/../src/'});
 	else
