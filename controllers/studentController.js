@@ -47,14 +47,14 @@ module.exports = {
 		      	}
 	    	});
 
-		    var data = req.session.student.studentNumber + ' ' + req.body.name + ' ' + req.body.value + '\n';
+		    var data = req.session.student.studentNumber + ' ' + req.body.name + ' ' + req.body.printing + '\n';
 		    fs.appendFile('public/investments.txt', data, function(err){
 		    if(err){
 		        console.log(err);
 		        throw err;
 		      }
 		    });
-		    res.json({status: 200, message: "Successfully invested $" + req.body.value + " in " + product.productName});
+		    res.json({status: 200, message: "Successfully invested $" + req.body.printing + " in " + product.productName});
 			}
 		}catch(err){
 			console.log(err);

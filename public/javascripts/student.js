@@ -16,7 +16,7 @@ function checkout(e){
     for(key in investments){
       var value = investments[key];
       
-      var formData = 'value='+value.formatMoney(0)+'&name='+key;
+      var formData = 'value='+value+'&name='+key+'&printing='+value.formatMoney(0);
       $.post('/api/student/invest', formData, function(res){
         Materialize.toast(res.message, 4000, 'blue lighten-1');
         $('#checkout').unbind('click');
@@ -103,8 +103,8 @@ function updateSummary(){
               .text('remove_circle_outline')
         )
       ,  
-      $('<h6>')
-        .text(key + ' - $ ' + investments[key])
+      $('<h12>')
+        .text(key + ' - $ ' + investments[key].formatMoney(0))
       ,
       $('<br>')  
     )
@@ -124,16 +124,9 @@ function updateSummary(){
 $(document).on('click', '.remove', function(){
     var id = this.id;
 
-    $('#entry'+id).remove();
-
-    Object.keys(investments).forEach(function(key){
-      var entry = null;
-      if(key == id){
-        delete investments[key];
-        Materialize.toast('Removed product investment', 3000, 'red lighten-1'); 
-      }  
-    });
-
+    delete investments[id];
+    Materialize.toast('Removed investment in ' + id, 3000, 'blue lighten-1'); 
+    $('#value-'+id).val(0);
     updateSummary();
 });
 
