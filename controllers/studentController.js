@@ -12,7 +12,7 @@ module.exports = {
 				}
 			});
 			if(student){
-				delete student.pin_code;
+				//delete student.pin_code;
 				req.session.student = student;
 				res.send({status:200});
 			}
