@@ -36,10 +36,10 @@ function checkout(e){
 }
 
 function viewProducts(){
-	var i = 0;
-	$('#holder').empty();
-	$.get('/api/student/products', function(res){
-	 	$.get('/public/templates/productStudent.html', function(data){
+  var i = 0;
+  $('#holder').empty();
+  $.get('/api/student/products', function(res){
+    $.get('/public/templates/productStudent.html', function(data){
       $.template('productTemplate', data);
       res.array.forEach(function(product){
         product.val = res.investments[product.productName]? res.investments[product.productName] : 0;
@@ -74,18 +74,18 @@ $(document).on('submit', '.invest', function(e){
     if(investments[data.name]){
       delete investments[data.name];
       updateSummary();
-      Materialize.toast("Removed investment in " + data.name, 4000, 'blue lighten-1');
+      Materialize.toast("Removed investment in " + data.name, 4000, 'green lighten-1');
     } else 
       Materialize.toast("Cannot invest $0", 4000, 'red lighten-1');
   } else if(investments[data.name] && data.value == investments[data.name]){
-      Materialize.toast("Already invested " + data.value + " in " + data.name, 4000, 'blue lighten-1');
+      Materialize.toast("Already invested " + data.value + " in " + data.name, 4000, 'green lighten-1');
   } else if(data.value > max-total){
       Materialize.toast("Amount is greater than remaining balance", 4000, 'red lighten-1');
       var val = investments[data.name]? investments[data.name] : 0;
       $(this).children('input[type=number]').val(val);
       total += val;
   } else {
-    Materialize.toast("Successfully placed $" + data.value.formatMoney(0) + " in " + data.name, 4000, 'blue lighten-1');
+    Materialize.toast("Successfully placed $" + data.value.formatMoney(0) + " in " + data.name, 4000, 'green lighten-1');
     investments[data.name] = data.value;
     updateSummary();
   }
@@ -113,7 +113,6 @@ function updateSummary(){
               .attr('class', 'material-icons')
               .text('remove_circle_outline')
         )
-      )
     );
     total += investments[key];
   });
@@ -130,7 +129,6 @@ function updateSummary(){
 $(document).on('click', '.remove', function(){
     var id = this.id;
     delete investments[id];
-    console.log(investments);
     Materialize.toast('Removed investment in ' + id, 3000, 'blue lighten-1'); 
     $('#value-'+id.shorthand()).val(0);
     updateSummary();
