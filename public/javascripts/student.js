@@ -12,18 +12,25 @@ function checkout(e){
   e.preventDefault();
   if(Object.keys(investments).length < 3)
     Materialize.toast("Minimum of 3 products", 4000, 'red lighten-1');
-  else if(confirm('Are you sure you want to check out?')){
-    for(key in investments){
-      var value = investments[key];
-      
-      var formData = 'value='+value+'&name='+key+'&printing='+value.formatMoney(0);
-      $.post('/api/student/invest', formData, function(res){
-        Materialize.toast(res.message, 4000, 'blue lighten-1');
-        $('#checkout').unbind('click');
-        $('#checkout').on('click', function(){
-          Materialize.toast('You have already checked out', 4000, 'red lighten-1');
-        });
+  else if(confirm('Are you sure you want to finalize investments? This action cannot be undone')){
+    try{
+      var body = 'investments='+JSON.stringify(investments);
+      $.post('/api/student/invest', body, function(res){
+        if(res.status == 200){
+          $.post('/api/student/checkout', function(result){
+            if(result.status == 200)
+              Materialize.toast('Investments finalized' , 4000, 'green lighten-1', function(){
+                alert('You will be logged out now. Thank you for participationg');
+                window.location.href = '/api/student/logout';
+              });
+            else
+              throw result;
+          });
+        } else 
+          throw res;
       });
+    }catch(err){
+      Materialize.toast('Error checking out', 4000, 'red lighten-1');
     }
   }
 }
@@ -36,6 +43,7 @@ function viewProducts(){
       $.template('productTemplate', data);
       res.array.forEach(function(product){
         product.val = res.investments[product.productName]? res.investments[product.productName] : 0;
+        product.shortName = product.productName.shorthand();
         $.tmpl('productTemplate', product).appendTo('#holder');
       });
     });
@@ -94,6 +102,9 @@ function updateSummary(){
       $('<div>')
       .attr('id', 'entry'+key)
       .append(
+      $('<h12>')
+        .text(key + ' - $ ' + investments[key].formatMoney(0))
+      ,
       $('<a>')
         .attr('id', key)
         .attr('class', 'remove btn-flat btn-small waves-effect waves-light')
@@ -102,12 +113,6 @@ function updateSummary(){
               .attr('class', 'material-icons')
               .text('remove_circle_outline')
         )
-      ,  
-      $('<span>')
-        .text(key + ' - $ ' + investments[key].formatMoney(0))
-      ,
-      $('<br>')  
-    )
     );
     total += investments[key];
   });
@@ -123,10 +128,9 @@ function updateSummary(){
 
 $(document).on('click', '.remove', function(){
     var id = this.id;
-
     delete investments[id];
-    Materialize.toast('Removed investment in ' + id, 3000, 'green lighten-1'); 
-    $('#value-'+id).val(0);
+    Materialize.toast('Removed investment in ' + id, 3000, 'blue lighten-1'); 
+    $('#value-'+id.shorthand()).val(0);
     updateSummary();
 });
 
@@ -134,3 +138,8 @@ Number.prototype.formatMoney = function(c, d, t){
   var n = this, c = isNaN(c = Math.abs(c)) ? 2 : c, d = d == undefined ? "." : d, t = t == undefined ? "," : t, s = n < 0 ? "-" : "", i = String(parseInt(n = Math.abs(Number(n) || 0).toFixed(c))), j = (j = i.length) > 3 ? j % 3 : 0;
   return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
 };
+
+String.prototype.shorthand = function(){
+  var ar = this.split(' ');
+  return ar[0].replace(/\W/g, '');
+}
