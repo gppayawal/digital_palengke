@@ -7,4 +7,5 @@ router.post('/invest', studentController.invest);
 router.post('/login', studentController.loginstudent);
 router.get('/products', studentController.getProducts);
 router.post('/update', studentController.update);
+router.post('/checkout', studentController.checkout);
 module.exports = router;
