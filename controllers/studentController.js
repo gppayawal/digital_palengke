@@ -12,8 +12,12 @@ module.exports = {
 				}
 			});
 			if(student){
-				req.session.student = student;
-				res.send({status:200});
+				if(student.checkout)
+					res.send({status: 400});
+				else{
+					req.session.student = student;
+					res.send({status:200});
+				}
 			}
 			else{
 				res.send({status:404});
@@ -24,38 +28,72 @@ module.exports = {
 		}
 	}, 
 
+	checkout: function(req, res){
+		try{
+			var records = require('../public/pins.json');
+			var student = null;
+
+			records.forEach(function(record){
+				if(record.studentNumber == req.session.student.studentNumber)	{
+					student = record;
+				}
+			});
+			if(student){
+				student.checkout = true;	
+
+	      fs.writeFile('public/pins.json', JSON.stringify(records, null, 4), (err) => {
+	        if(err){
+	          console.log(err);
+	          throw err;
+	        }
+      	});
+
+      	res.send({status:200});
+			}
+			else{
+				res.send({status:404});
+			}
+		}catch(err){
+			console.log(err);
+			res.send({status:500});
+		}
+	},
+
 	invest: function(req, res){
 		try{
+			var investments = JSON.parse(req.body.investments); 
 			var products = require('../public/products.json');
-			var index = -1;
-
-			for(var i = 0 ; i < products.length ; i++){
-				if(products[i].productName == req.body.name){
-					index = i;
+			var data = '';
+			
+			Object.keys(investments).forEach(function(key){
+				var index = -1;
+				for(var i = 0 ; i < products.length ; i++){
+					if(products[i].productName == key){
+						index = i;
+					}
 				}
-			}
-			if(index == -1){
-				res.json({status:404});
-			} else {
-				var product = products[index];
-				product.investments = parseInt(product.investments) + parseInt(req.body.value);
 
-	    	fs.writeFile('public/products.json', JSON.stringify(products, null, 4), (err) => {
-		      	if(err){
-		        console.log(err);
-		        throw err;
-		      	}
-	    	});
+				if(index != -1){
+					var product = products[index];
+					product.investments = parseInt(product.investments) + parseInt(investments[key]);
+					data += req.session.student.studentNumber + ' ' + key + ' $' + investments[key].formatMoney(0) + '\n';
+				}
+			});
 
-		    var data = req.session.student.studentNumber + ' ' + req.body.name + ' ' + req.body.printing + '\n';
-		    fs.appendFile('public/investments.txt', data, function(err){
-		    if(err){
-		        console.log(err);
-		        throw err;
-		      }
-		    });
-		    res.json({status: 200, message: "Successfully invested $" + req.body.printing + " in " + product.productName});
-			}
+    	fs.writeFile('public/products.json', JSON.stringify(products, null, 4), (err) => {
+	      	if(err){
+	        console.log(err);
+	        throw err;
+	      	}
+    	});
+
+	    fs.appendFile('public/investments.txt', data, function(err){
+	    if(err){
+	        console.log(err);
+	        throw err;
+	      }
+	    });
+	    res.json({status: 200});
 		}catch(err){
 			console.log(err);
 			res.json({status: 500});
@@ -75,7 +113,6 @@ module.exports = {
 				results.push(product);
 			}
 		});
-		console.log(req.session);
 		res.json({array:results, investments: req.session.student.investments});
 	},
 
@@ -116,3 +153,8 @@ module.exports = {
     	res.redirect('/');
 	}
 }
+
+Number.prototype.formatMoney = function(c, d, t){
+  var n = this, c = isNaN(c = Math.abs(c)) ? 2 : c, d = d == undefined ? "." : d, t = t == undefined ? "," : t, s = n < 0 ? "-" : "", i = String(parseInt(n = Math.abs(Number(n) || 0).toFixed(c))), j = (j = i.length) > 3 ? j % 3 : 0;
+  return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
+};

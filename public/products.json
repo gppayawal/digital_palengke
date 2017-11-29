@@ -4,21 +4,21 @@
         "productName": "Bondat",
         "productDesc": "An app that shows all food establishments around the UPLB campus with added features such as pay it back, navigation, personal preferences (allergies, menu), reward system, and price range",
         "imageFile": "public/uploads/Logo.png",
-        "investments": 902500
+        "investments": 0
     },
     {
         "groupNumber": "2",
         "productName": "BUSakay",
         "productDesc": "BUSakay is your real time travel companion specially created for UPLB students. Save time by knowing the route, estimated time of arrival and departure in each bus stop, number of people waiting in each stop, and number of available seats on the bus.",
         "imageFile": "public/uploads/23619024_1997042430322335_1832235088_n.png",
-        "investments": 600800
+        "investments": 0
     },
     {
         "groupNumber": "3",
         "productName": "BuzzFood",
         "productDesc": "A cutting edge, state of the art mobile application that lets you search, discover and randomize restaurants, pubs and cafes within the vicinity of Los Banos, Laguna. This application will filter the restaurant menus based on the price range, specialty, user reviews and ratings , food type, and meal type categories plus a real-time update on which restaurants don't have a wait and can seat the user right away! Features also include, maps that will guide the users and memory suggestions on the user's previous orders.  This mobile app is perfect for UPLB students, faculties and anyone in Los Banos who can't think of a good place to eat.",
         "imageFile": "public/uploads/logo.jpg",
-        "investments": 200
+        "investments": 0
     },
     {
         "groupNumber": "4",
@@ -39,7 +39,7 @@
         "productName": "LinkAge",
         "productDesc": "LinkAge is a free application which aims to provide social and psychological support to the students of UPLB. It aims to be a social platform, where students can upload or share their interests anonymously, while the app matches them to other students with similar interests - hence linking people in the modern age through the internet. \r\n\r\nThe app also provides its users an option to go premium, wherein they can opt to buy digital stickers, emojis, etc. Its premium version also has a calendar feature, where different events around the campus throughout the semester are organized and updated. UPLB orgs can also advertise their events through this feature of LinkAge.",
         "imageFile": "public/uploads/LinkAgeLogo.png",
-        "investments": 300300
+        "investments": 0
     },
     {
         "groupNumber": "16",

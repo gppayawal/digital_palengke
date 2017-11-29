@@ -9,6 +9,7 @@ $(document).ready(function(){
     var body = 'pin='+$('#pin').val();
     $.post('/api/student/login', body, function(res){
       switch (res.status) {
+        case 400: message = 'You have finalized your investments'; break;
         case 404: message = 'Invalid PIN'; break
         default: message = 'Error logging in!'; break;
       }
@@ -36,8 +37,8 @@ $(document).ready(function(){
        $("#adminPassword").val("");
       }
     })
-      return false;
-    });
+    return false;
+  });
 });
 
 function admin(){
