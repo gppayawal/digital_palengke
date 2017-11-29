@@ -4,14 +4,14 @@
         "productName": "Bondat",
         "productDesc": "An app that shows all food establishments around the UPLB campus with added features such as pay it back, navigation, personal preferences (allergies, menu), reward system, and price range",
         "imageFile": "public/uploads/bondat.png",
-        "investments": 0
+        "investments": 600000
     },
     {
         "groupNumber": "2",
         "productName": "BUSakay",
         "productDesc": "BUSakay is your real time travel companion specially created for UPLB students. Save time by knowing the route, estimated time of arrival and departure in each bus stop, number of people waiting in each stop, and number of available seats on the bus.",
         "imageFile": "public/uploads/busakay.png",
-        "investments": 1000
+        "investments": 401000
     },
     {
         "groupNumber": "3",
@@ -46,7 +46,7 @@
         "productName": "LinkAge",
         "productDesc": "LinkAge is a free application which aims to provide social and psychological support to the students of UPLB. It aims to be a social platform, where students can upload or share their interests anonymously, while the app matches them to other students with similar interests - hence linking people in the modern age through the internet. \n\nThe app also provides its users an option to go premium, wherein they can opt to buy digital stickers, emojis, etc. Its premium version also has a calendar feature, where different events around the campus throughout the semester are organized and updated. UPLB orgs can also advertise their events through this feature of LinkAge.",
         "imageFile": "public/uploads/linkAge.png",
-        "investments": 0
+        "investments": 100000
     },
     {
         "groupNumber": "8",
@@ -60,7 +60,7 @@
         "productName": "Chillx",
         "productDesc": "One-stop software where you can manage your schedule, organize files, download supplementary content, and connect to people or have AI manage everything for you. ",
         "imageFile": "public/uploads/chillx.jpg",
-        "investments": 0
+        "investments": 400000
     },
     {
         "groupNumber": "11",
@@ -116,6 +116,6 @@
         "productName": "U-Plan: Planner with a personality",
         "productDesc": "U-Plan is a taskmaster app specifically made for Elbi students. All you need to do is keep her happy by completing your scheduled tasks. By keeping her happy, you can earn reward points, and unlock gift certificates and other freebies from establishments around UPLB. Failure to finish your scheduled tasks will only end up with you getting on U-Plan's bad side, and her giving you a grade of 5.00.",
         "imageFile": "public/uploads/U-Plan.png",
-        "investments": 0
+        "investments": 100000
     }
 ]

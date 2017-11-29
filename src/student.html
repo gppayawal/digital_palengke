@@ -10,22 +10,17 @@
 	</head>
 
 	<body>
-		<div class="side-nav fixed">
+		<div class="side-nav fixed" style="padding-top: 15px;">
 			<div class="container">
-				<div class="row" style="margin-top: 7%;">
-					<img id="logo" src="public/images/logo.png" alt="logo" style="width: 150px; height: 150px;"/>
-				</div>
+				<img src="../public/images/logo.png" style="width: 150px; height: 150px;"/>
+			</div>
+
+			<div class="row" style="margin-left: 2%;">
+				<div class="col s12"> <h5> Current balance </h5><b id='balance'></b> </div>
+				<div class="col s12"> <h5> Receipt </h5></div>
 			</div>
 			<div class="row" style="margin-left: 2%;">
-				<div class="col s12"> <h4> Hi, Student! </h4> </div>
-				<div class="col s12"> <h6> Your current balance </h6><b id='balance'></b> </div>
-			</div>
-			<div class="row" style="margin-left: 2%;">
-				<div class="col s12"> <h5> Products - Amount </h5> </div>
-			</div>
-			<div class="row" style="margin-left: 2%;">	
-				<div class="col s12" id="products"> </div>
-				<!-- <div class="col s6" id="removebtns" style="background-color: green; text-align: left;"> </div> -->
+				<div class="col s12" id="products" style="height: 200px; overflow-y: scroll; border: 1px solid;"> </div>
 			</div>
 			<div class='navdiv'>
 				<a class='waves-effect waves-light btn-flat modal-trigger' href='/api/student/logout'>Sign Out</a>
