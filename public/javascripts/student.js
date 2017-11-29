@@ -12,7 +12,7 @@ function checkout(e){
   e.preventDefault();
   if(Object.keys(investments).length < 3)
     Materialize.toast("Minimum of 3 products", 4000, 'red lighten-1');
-  else if(confirm('Are you sure you want to finalize investments? This action cannot be undone')){
+  else if(confirm('Are you sure you want to finalize your investments? This action cannot be undone')){
     try{
       var body = 'investments='+JSON.stringify(investments);
       $.post('/api/student/invest', body, function(res){
@@ -20,7 +20,7 @@ function checkout(e){
           $.post('/api/student/checkout', function(result){
             if(result.status == 200)
               Materialize.toast('Investments finalized' , 4000, 'green lighten-1', function(){
-                alert('You will be logged out now. Thank you for participationg');
+                alert('You will be logged out now. Thank you for participating');
                 window.location.href = '/api/student/logout';
               });
             else
@@ -112,8 +112,8 @@ function updateSummary(){
         )
       ,$('<span>')
         .text(key + ' - $ ' + investments[key].formatMoney(0))
-      ,
-    );
+      )
+    );  
     total += investments[key];
   });
 

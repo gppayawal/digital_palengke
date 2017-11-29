@@ -4,21 +4,21 @@
         "productName": "Bondat",
         "productDesc": "An app that shows all food establishments around the UPLB campus with added features such as pay it back, navigation, personal preferences (allergies, menu), reward system, and price range",
         "imageFile": "public/uploads/bondat.png",
-        "investments": 600000
+        "investments": 700000
     },
     {
         "groupNumber": "2",
         "productName": "BUSakay",
         "productDesc": "BUSakay is your real time travel companion specially created for UPLB students. Save time by knowing the route, estimated time of arrival and departure in each bus stop, number of people waiting in each stop, and number of available seats on the bus.",
         "imageFile": "public/uploads/busakay.png",
-        "investments": 401000
+        "investments": 501000
     },
     {
         "groupNumber": "3",
         "productName": "BuzzFood",
         "productDesc": "A cutting edge, state of the art mobile application that lets you search, discover and randomize restaurants, pubs and cafes within the vicinity of Los Banos, Laguna. This application will filter the restaurant menus based on the price range, specialty, user reviews and ratings , food type, and meal type categories plus a real-time update on which restaurants don't have a wait and can seat the user right away! Features also include, maps that will guide the users and memory suggestions on the user's previous orders. This mobile app is perfect for UPLB students, faculties and anyone in Los Banos who can't think of a good place to eat.",
         "imageFile": "public/uploads/buzzFood.jpg",
-        "investments": 100
+        "investments": 100100
     },
     {
         "groupNumber": "4",
@@ -46,7 +46,7 @@
         "productName": "LinkAge",
         "productDesc": "LinkAge is a free application which aims to provide social and psychological support to the students of UPLB. It aims to be a social platform, where students can upload or share their interests anonymously, while the app matches them to other students with similar interests - hence linking people in the modern age through the internet. \n\nThe app also provides its users an option to go premium, wherein they can opt to buy digital stickers, emojis, etc. Its premium version also has a calendar feature, where different events around the campus throughout the semester are organized and updated. UPLB orgs can also advertise their events through this feature of LinkAge.",
         "imageFile": "public/uploads/linkAge.png",
-        "investments": 100000
+        "investments": 200000
     },
     {
         "groupNumber": "8",
@@ -60,7 +60,7 @@
         "productName": "Chillx",
         "productDesc": "One-stop software where you can manage your schedule, organize files, download supplementary content, and connect to people or have AI manage everything for you. ",
         "imageFile": "public/uploads/chillx.jpg",
-        "investments": 400000
+        "investments": 500000
     },
     {
         "groupNumber": "11",
@@ -109,13 +109,13 @@
         "productName": "Surviving LB",
         "productDesc": "This app lets you access the following features:\nThis app lets you have access with the following:\n1) Transportation: Arranges the quickest transpo based on your location that will fit your budget as well (perfect for students esp BSF students)\n2) Time Management: You won't worry about waking up, doing acad/org stuff and so much more! \n3) Food: Organizes restaurants/eateries/fast food chains that will fit your mood, budget and diet (If you need to lose some of those fat, without having to sacrifice most of your allowance, this is the one for you!)\n4) Bahay: Need a new place to stay or someone to move in with you? Worry not! This feature will help you look for apartments/dorms based on your liking and budget. This feature has amazing filters and required forms so it won't be such a hassle to move in/out!\n5) Notes: Arranges your notes for you in the most amazing way possible.\n6) Budget: Budget is important for a UPLB Student. This feature basically lets you keep track of everything, transportation, food, laundry, bills, org fras, etc.!\n7) Acads: This feature collects all notifications from social media accounts that is only related to acads so that the UPLB student will focus just on that. Also, there is a planner for the remaining units, subjects, sais stuff, etc. (All about acads)\n\n// Also has the concept of internet of things\n// This app basically helps a UPLB Student in all aspects related to being and surviving in the campus",
         "imageFile": "public/uploads/survivingelbi.JPG",
-        "investments": 0
+        "investments": 100000
     },
     {
         "groupNumber": "18",
         "productName": "U-Plan: Planner with a personality",
         "productDesc": "U-Plan is a taskmaster app specifically made for Elbi students. All you need to do is keep her happy by completing your scheduled tasks. By keeping her happy, you can earn reward points, and unlock gift certificates and other freebies from establishments around UPLB. Failure to finish your scheduled tasks will only end up with you getting on U-Plan's bad side, and her giving you a grade of 5.00.",
         "imageFile": "public/uploads/U-Plan.png",
-        "investments": 100000
+        "investments": 200000
     }
 ]
